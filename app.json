@@ -22,7 +22,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "org.virevol.virevolai.safecovid"
+    },
+    "android": {
+      "package": "org.virevol.virevolai.safecovid"
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }
