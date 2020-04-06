@@ -52,13 +52,22 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Allow safeCOVID to access your microphone</string>
 	<key>NSMotionUsageDescription</key>
-	<string>Allow safeCOVID to access your device's accelerometer</string>
+	<string>Allow safeCOVID to access your device&apos;s accelerometer</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Give safeCOVID periences permission to save photos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Give safeCOVID periences permission to access your photos</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>Allow safeCOVID to access your reminders</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Allow safeCOVID to access Bluetooth to make warn you if you are not among other safe people</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+		<string>location</string>
+		<string>processing</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
