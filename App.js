@@ -3,6 +3,7 @@ import { Platform, StyleSheet, Text, View } from 'react-native';
 import { BleManager } from 'react-native-ble-plx';
 import BleCheck from './BleCheck';
 import Location from './Location';
+import Movement from './Movement';
 
 export default function App() {
 	return (
@@ -10,6 +11,7 @@ export default function App() {
 			<Text>safeCOVID</Text>
 			<Location />
 			<BleCheck />
+			<Movement />
 		</View>
 	);
 }

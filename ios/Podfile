@@ -49,4 +49,6 @@ target 'safeCOVID' do
 
   pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
 
+  pod 'RNSensors', :path => '../node_modules/react-native-sensors'
+
 end
