@@ -7,7 +7,7 @@ import Location from './Location';
 export default function App() {
 	return (
 		<View style={styles.container}>
-			<Text>safeCOVID bluetooth!</Text>
+			<Text>safeCOVID</Text>
 			<Location />
 			<BleCheck />
 		</View>

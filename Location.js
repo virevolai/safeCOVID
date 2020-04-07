@@ -1,32 +1,53 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, StyleSheet, Text, View, Alert } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View, Alert, Platform } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
+
+const LOCHIACCURACY = true
+const LOCTIMEOUT = 20000
+const LOCMAXAGE = 1000
 
 export default class Location extends Component {
 
 	state = {
-		location: null
+		initialPosition: 'unknown',
+		lastPosition: 'unknown',
 	};
 
-	findCoordinates = () => {
+	watchID: ?number = null;
+
+	componentDidMount = () => {
+		if (Platform.OS === 'ios') {
+			Geolocation.setRNConfiguration({ authorizationLevel: 'always' });
+		}
 		Geolocation.getCurrentPosition(
 			position => {
-				const location = JSON.stringify(position);
-
-				this.setState({ location });
+				const initialPosition = JSON.stringify(position);
+				this.setState({initialPosition});
 			},
-			error => Alert.alert(error.message),
-			{ enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+			error => Alert.alert('Error', JSON.stringify(error)),
+			{enableHighAccuracy: LOCHIACCURACY, timeout: LOCTIMEOUT, maximumAge: LOCMAXAGE},
 		);
+		this.watchID = Geolocation.watchPosition(position => {
+			const lastPosition = JSON.stringify(position);
+			this.setState({lastPosition});
+		});
 	};
+
+	componentWillUnmount = () =>
+		this.watchID != null &&
+			Geolocation.clearWatch(this.watchID);
 
 	render() {
 		return (
-			<View style={styles.container}>
-				<TouchableOpacity onPress={this.findCoordinates}>
-					<Text style={styles.welcome}>Find My Coords?</Text>
-					<Text>Location: {this.state.location}</Text>
-				</TouchableOpacity>
+			<View>
+				<Text>
+					<Text style={styles.title}>Initial position: </Text>
+					{this.state.initialPosition}
+				</Text>
+				<Text>
+					<Text style={styles.title}>Current position: </Text>
+					{this.state.lastPosition}
+				</Text>
 			</View>
 		);
 	}
