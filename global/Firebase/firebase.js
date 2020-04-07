@@ -38,6 +38,10 @@ class Firebase {
 	signOut = () =>
 		firebase.auth().signOut()
 
+	get currentUser() {
+		return firebase.auth().currentUser
+	}
+
 	// firestore DB
 	// ----- SCHEMA
 	get currentSchema() {
@@ -60,6 +64,7 @@ class Firebase {
 			.set(this.appendTs(user))
 
 	get currentDeviceUser() {
+		console.log('currentDeviceUser: currentUser is ', this.currentUser)
 		return this.deviceUsers
 			.doc(this.currentUser.uid)
 	}
@@ -73,6 +78,16 @@ class Firebase {
 	createMovementEntry = (mvmt) =>
 		this.getMovement
 			.add(this.appendTs(mvmt))
+
+	// ----- BLUETOOTH
+	get getBluetooth() {
+		return this.currentDeviceUser
+			.collection('bluetooth')
+	}
+
+	createBluetoothEntry = (devices) =>
+		this.getBluetooth
+			.add(this.appendTs(devices))
 
 
 	// ----- HELPERS

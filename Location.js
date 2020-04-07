@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, StyleSheet, Text, View, Alert, Platform } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
+import { LOCTIMEOUT, LOCMAXAGE } from 'react-native-dotenv'
 import { withFirebaseHOC } from './global/Firebase'
 
 const LOCHIACCURACY = true
-const LOCTIMEOUT = 20000
-const LOCMAXAGE = 1000
 
 class Location extends Component {
 
@@ -23,14 +22,19 @@ class Location extends Component {
 		Geolocation.getCurrentPosition(
 			position => {
 				const initialPosition = JSON.stringify(position);
-				this.setState({initialPosition});
+				this.setState({ initialPosition });
+				this.props.firebase.shared.createMovementEntry(initialPosition)
 			},
 			error => Alert.alert('Error', JSON.stringify(error)),
-			{enableHighAccuracy: LOCHIACCURACY, timeout: LOCTIMEOUT, maximumAge: LOCMAXAGE},
+			{
+				enableHighAccuracy: LOCHIACCURACY, 
+				timeout: parseInt(LOCTIMEOUT), 
+				maximumAge: parseInt(LOCMAXAGE)
+			},
 		);
 		this.watchID = Geolocation.watchPosition(position => {
 			const lastPosition = JSON.stringify(position);
-			this.setState({lastPosition});
+			this.setState({ lastPosition });
 		});
 	};
 

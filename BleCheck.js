@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Platform, Text, View } from 'react-native';
 import { BleManager } from 'react-native-ble-plx';
+import { SCAN_TIMEOUT } from 'react-native-dotenv'
 import { withFirebaseHOC } from './global/Firebase'
+
 
 class BleCheck extends Component {
 
@@ -59,6 +61,12 @@ class BleCheck extends Component {
 				}
 			}
 		)
+
+		const { devices } = this.state
+		if (devices.size > 0) {
+			console.log('BleCheck::scanAndConnect: Saving devices')
+			this.props.firebase.shared.createBluetoothEntry({ scans: Array.from(devices).join(',') })
+		}
 	}
 
 	render() {
