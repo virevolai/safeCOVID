@@ -80,3 +80,9 @@ app.manifest
 
 # Expo
 .expo/*
+
+# vim
+*.swp
+tags
+*.vim
+
