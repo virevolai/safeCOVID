@@ -83,5 +83,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>org.virevol.virevolai.safecovid</string>
+	</array>
 </dict>
 </plist>
