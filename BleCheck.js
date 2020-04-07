@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Platform, Text, View } from 'react-native';
 import { BleManager } from 'react-native-ble-plx';
+import { withFirebaseHOC } from './global/Firebase'
 
-export default class BleCheck extends Component {
+class BleCheck extends Component {
 
 	constructor() {
 		super();
@@ -71,3 +72,4 @@ export default class BleCheck extends Component {
  
 }
 
+export default withFirebaseHOC(BleCheck)

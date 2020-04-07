@@ -7,8 +7,9 @@ import {
   SensorTypes
 } from "react-native-sensors";
 import { map, filter } from "rxjs/operators";
+import { withFirebaseHOC } from './global/Firebase'
 
-export default class Movement extends Component {
+class Movement extends Component {
 
 	constructor() {
 		super()
@@ -39,3 +40,5 @@ export default class Movement extends Component {
 	}
 
 }
+
+export default withFirebaseHOC(Movement)

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, StyleSheet, Text, View, Alert, Platform } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
+import { withFirebaseHOC } from './global/Firebase'
 
 const LOCHIACCURACY = true
 const LOCTIMEOUT = 20000
 const LOCMAXAGE = 1000
 
-export default class Location extends Component {
+class Location extends Component {
 
 	state = {
 		initialPosition: 'unknown',
@@ -67,3 +68,4 @@ const styles = StyleSheet.create({
 	}
 })
 
+export default withFirebaseHOC(Location)
