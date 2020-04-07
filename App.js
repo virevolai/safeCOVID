@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { API_KEY, AUTH_DOMAIN, DATABASE_URL, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, APP_ID, CURRENT_SCHEMA_VERSION } from 'react-native-dotenv'
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import { BleManager } from 'react-native-ble-plx';
 import BleCheck from './BleCheck';

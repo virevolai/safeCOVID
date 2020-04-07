@@ -41,3 +41,5 @@ To compile and run your project, execute one of the following commands:
 - yarn web
 
 ```
+
+For react-native-dotenv, update babel.config.js not .babelrc
