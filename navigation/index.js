@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { withFirebaseHOC } from '../global/Firebase'
 import Vote from '../Vote/Vote'
-import Login from '../Auth/Login'
+import Initial from '../Initial'
 
 const Stack = createStackNavigator()
 
@@ -22,11 +22,11 @@ class AppContainer extends Component {
 			<NavigationContainer>
 				{ this.state.isLoggedin ? (
 					<Stack.Navigator>
-						<Stack.Screen name="Home" component={Vote} />
+						<Stack.Screen name="safeCOVID" component={Vote} />
 					</Stack.Navigator>
 				) : (
 					<Stack.Navigator>
-						<Stack.Screen name="Login" component={Login} />
+						<Stack.Screen name="Initial" component={Initial} />
 					</Stack.Navigator>
 				)}
 			</NavigationContainer>

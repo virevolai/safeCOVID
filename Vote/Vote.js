@@ -1,20 +1,23 @@
 import React, { Component } from 'react'
-import { Platform, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Button } from 'react-native'
 import BleCheck from '../global/BleCheck'
 import Location from '../global/Location'
 import Movement from '../global/Movement'
 import Score from '../global/Score'
 import { withFirebaseHOC } from '../global/Firebase'
 
-function Vote() {
+function Vote(props) {
 	console.log('Vote::render: Init')
 	return (
 		<View style={styles.container}>
-			<Text>safeCOVID</Text>
 			<Score />
 			<Location />
 			<BleCheck />
 			<Movement />
+			<Button
+				title={'logout'}
+				onPress={() => props.firebase.shared.signOut()}
+			/>
 		</View>
 	)
 }

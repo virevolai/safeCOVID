@@ -1,6 +1,8 @@
 // What is being exported, the API
 const helpers = {
-	sleep: sleep,
+	sleep: function sleep(ms) {
+		return sleep(ms)
+	},
 	geo_distance: function distance(lat1, lon1, lat2, lon2, unit) {
 		return lat_lon_distance(lat1, lon1, lat2, lon2, unit)
 	},
