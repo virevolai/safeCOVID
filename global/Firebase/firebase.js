@@ -62,6 +62,16 @@ class Firebase {
 			.collection('device_users')
 	}
 
+	userScore = (fn) =>
+		this.currentDeviceUser
+			.get()
+			.then((doc) => {
+				if (doc.exists) {
+					const data = doc.data()
+					fn({ score: data.score, scoredAt: data.scored_ts })
+				}
+			})
+
 	// This should only be called AFTER a NEW login has been authenticated
 	createNewDeviceUser = user => 
 		this.deviceUsers
@@ -69,7 +79,7 @@ class Firebase {
 			.set(this.appendTs(user))
 
 	get currentDeviceUser() {
-		console.log('currentDeviceUser: currentUser is ', this.currentUser)
+		console.log('currentDeviceUser: currentUser uid is ', this.currentUser.uid)
 		return this.deviceUsers
 			.doc(this.currentUser.uid)
 	}

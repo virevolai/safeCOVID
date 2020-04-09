@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { TouchableOpacity, StyleSheet, Text, View, Alert, Platform } from 'react-native'
 import Geolocation from '@react-native-community/geolocation'
 import { LOCTIMEOUT, LOCMAXAGE } from 'react-native-dotenv'
+import helpers from '../global/helpers'
 import { withFirebaseHOC } from '../global/Firebase'
 
 const LOCHIACCURACY = true
@@ -9,8 +10,8 @@ const LOCHIACCURACY = true
 class Location extends Component {
 
 	state = {
-		initialPosition: 'unknown',
-		lastPosition: 'unknown',
+		initialPosition: null,
+		distance: null,
 	}
 
 	watchID: ?number = null
@@ -21,8 +22,7 @@ class Location extends Component {
 		}
 		Geolocation.getCurrentPosition(
 			position => {
-				const initialPosition = JSON.stringify(position)
-				this.setState({ initialPosition })
+				this.setState({ initialPosition: position })
 				this.props.firebase.shared.createLocationEntry(position)
 			},
 			error => Alert.alert('Error', JSON.stringify(error)),
@@ -32,9 +32,28 @@ class Location extends Component {
 				maximumAge: parseInt(LOCMAXAGE)
 			},
 		)
-		this.watchID = Geolocation.watchPosition(position => {
-			const lastPosition = JSON.stringify(position)
-			this.setState({ lastPosition })
+		this.watchID = Geolocation.watchPosition(p2 => {
+			this.setState({ currentPosition: JSON.stringify(p2) })
+			const { initialPosition } = this.state
+
+			console.log('Distance between ', {initialPosition}, ' and ', {p2} )
+
+			if (initialPosition && p2) {
+				const { coords: c1 } = initialPosition
+				const { coords: c2 } = p2
+				console.log('c1 = ', c1, ', c2 = ', c2)
+				const d = helpers.geo_distance(
+					c1.latitude, c1.longitude,
+					c2.latitude, c2.longitude
+				)
+				console.log('Distance is ', d)
+				this.setState({ distance: d })
+				if (d > 0.001) {
+					console.log('Location::componentDidMount: Moved past the threshold')
+					this.props.firebase.shared.createLocationEntry(position)
+				}
+			}
+
 		})
 	}
 
@@ -46,12 +65,7 @@ class Location extends Component {
 		return (
 			<View>
 				<Text>
-					<Text style={styles.title}>Initial position: </Text>
-					{this.state.initialPosition}
-				</Text>
-				<Text>
-					<Text style={styles.title}>Current position: </Text>
-					{this.state.lastPosition}
+					Location alerts on
 				</Text>
 			</View>
 		)

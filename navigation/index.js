@@ -7,16 +7,13 @@ import Login from '../Auth/Login'
 
 const Stack = createStackNavigator()
 
-const sleep = (milliseconds) =>
-	new Promise(resolve => setTimeout(resolve, milliseconds))
-
 class AppContainer extends Component {
 
 	state = { isLoggedin: false }
 
 	componentDidMount = async () =>
 		await this.props.firebase.shared.checkUserAuth(() =>
-			sleep(this.setState({ isLoggedin: true }), 2000)
+			this.setState({ isLoggedin: true })
 		)
 
 	render() {

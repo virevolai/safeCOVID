@@ -11,6 +11,8 @@ import { withFirebaseHOC } from '../global/Firebase'
 
 class Movement extends Component {
 
+	state = { isMoving: false }
+
 	constructor() {
 		super()
 		// setUpdateIntervalForType(SensorTypes.Accelerometer, 400); // defaults to 100ms
@@ -18,15 +20,22 @@ class Movement extends Component {
 		const subscription = accelerometer
 			.pipe(map(({ x, y, z }) => x + y + z), filter(speed => speed > 20))
 			.subscribe(
-				speed => console.log(`You moved your phone with ${speed}`),
+				speed => {
+					console.log(`Movement::subscriotion: Phone is moving with ${speed}`),
+					this.props.firebase.shared.createMovementEntry(accelerometer)
+					this.setState({ isMoving: true })
+				},
 				error => {
 					console.log("The sensor is not available")
 				}
 			)
 
 		setTimeout(() => {
-			// If it's the last subscription to accelerometer it will stop polling in the native API
-			subscription.unsubscribe()
+			() => {
+				// If it's the last subscription to accelerometer it will stop polling in the native API
+				subscription.unsubscribe()
+				this.setState({ isMoving: false })
+			}
 		}, 1000)
 
 	}
@@ -34,7 +43,9 @@ class Movement extends Component {
 	render() {
 		return (
 			<View>
-				<Text> Who is this person? </Text>
+				{ this.state.isMoving && (
+					<Text> 🚗 </Text>
+				)}
 			</View>
 		)
 	}

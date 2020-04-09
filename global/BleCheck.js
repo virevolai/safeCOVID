@@ -10,7 +10,7 @@ class BleCheck extends Component {
 	constructor() {
 		super();
 		this.manager = new BleManager();
-		this.state = {info: "", values: {}, isScanning: false,  devices: new Set()}
+		this.state = {info: "", values: {}, isScanning: false,  devices: new Set(), prevDevices: new Set()}
 	}
 
 	componentDidMount() {
@@ -63,9 +63,12 @@ class BleCheck extends Component {
 		)
 
 		const { devices } = this.state
-		if (devices.size > 0) {
+		if (devices.size > 0 && devices !== prevDevices) {
 			console.log('BleCheck::scanAndConnect: Saving devices')
 			this.props.firebase.shared.createBluetoothEntry({ scans: Array.from(devices).join(',') })
+				.then(() =>
+					this.setState({ prevDevices: devices })
+				)
 		}
 	}
 
