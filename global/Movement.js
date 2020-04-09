@@ -7,6 +7,7 @@ import {
   SensorTypes
 } from "react-native-sensors"
 import { map, filter } from "rxjs/operators"
+import { textStyle } from '../global/styles/'
 import { withFirebaseHOC } from '../global/Firebase'
 
 class Movement extends Component {
@@ -44,7 +45,7 @@ class Movement extends Component {
 		return (
 			<View>
 				{ this.state.isMoving && (
-					<Text> 🚗 </Text>
+					<Text style={textStyle.normal}> 🚗 </Text>
 				)}
 			</View>
 		)

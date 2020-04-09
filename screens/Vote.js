@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View, } from 'react-native'
 import BleCheck from '../global/BleCheck'
 import Location from '../global/Location'
 import Movement from '../global/Movement'
 import Score from '../global/Score'
+import { Colors } from '../global/styles/'
 import { withFirebaseHOC } from '../global/Firebase'
 
 function Vote(props) {
@@ -14,10 +15,6 @@ function Vote(props) {
 			<Location />
 			<BleCheck />
 			<Movement />
-			<Button
-				title={'logout'}
-				onPress={() => props.firebase.shared.signOut()}
-			/>
 		</View>
 	)
 }
@@ -25,7 +22,7 @@ function Vote(props) {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff',
+		backgroundColor: Colors.Pbackground,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},

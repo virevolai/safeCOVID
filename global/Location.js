@@ -3,6 +3,7 @@ import { TouchableOpacity, StyleSheet, Text, View, Alert, Platform } from 'react
 import Geolocation from '@react-native-community/geolocation'
 import { LOCTIMEOUT, LOCMAXAGE } from 'react-native-dotenv'
 import helpers from '../global/helpers'
+import { textStyle } from '../global/styles/'
 import { withFirebaseHOC } from '../global/Firebase'
 
 const LOCHIACCURACY = true
@@ -63,27 +64,13 @@ class Location extends Component {
 
 	render() {
 		return (
-			<View>
-				<Text>
+			<>
+				<Text style={textStyle.normal}>
 					Location alerts on
 				</Text>
-			</View>
+			</>
 		)
 	}
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: '#F5FCFF'
-	},
-	welcome: {
-		fontSize: 20,
-		textAlign: 'center',
-		margin: 10
-	}
-})
 
 export default withFirebaseHOC(Location)

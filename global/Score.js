@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, } from 'react-native'
+import { textStyle } from '../global/styles/'
 import { withFirebaseHOC } from '../global/Firebase'
 
 class Score extends Component {
@@ -16,11 +17,11 @@ class Score extends Component {
 	render() {
 		const { score } = this.state
 		return (
-			<View>
-				<Text>
+			<>
+				<Text style={textStyle.bold}>
 					{score ? score : 'not scored yet'}
 				</Text>
-			</View>
+			</>
 		)
 	}
 }

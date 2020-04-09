@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Platform, Text, View } from 'react-native';
 import { BleManager } from 'react-native-ble-plx';
 import { SCAN_TIMEOUT } from 'react-native-dotenv'
+import { Colors, textStyle } from '../global/styles/'
 import { withFirebaseHOC } from '../global/Firebase'
-
 
 class BleCheck extends Component {
 
@@ -74,9 +74,9 @@ class BleCheck extends Component {
 
 	render() {
 		return (
-			<View style={{backgroundColor: 'yellow'}}>
-				<Text>{this.state.info}</Text>
-				<Text>{this.state.devices}</Text>
+			<View style={{backgroundColor: Colors.Pbackground}}>
+				<Text style={textStyle.normal}>{this.state.info}</Text>
+				<Text style={textStyle.normal}>{this.state.devices}</Text>
 			</View>
 		)
 	}
