@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Platform, Text, View } from 'react-native';
 import { BleManager } from 'react-native-ble-plx';
 import { SCAN_TIMEOUT } from 'react-native-dotenv'
-import { withFirebaseHOC } from './global/Firebase'
+import { withFirebaseHOC } from '../global/Firebase'
 
 
 class BleCheck extends Component {

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { TouchableOpacity, StyleSheet, Text, View, Alert, Platform } from 'react-native';
-import Geolocation from '@react-native-community/geolocation';
+import React, { Component } from 'react'
+import { TouchableOpacity, StyleSheet, Text, View, Alert, Platform } from 'react-native'
+import Geolocation from '@react-native-community/geolocation'
 import { LOCTIMEOUT, LOCMAXAGE } from 'react-native-dotenv'
-import { withFirebaseHOC } from './global/Firebase'
+import { withFirebaseHOC } from '../global/Firebase'
 
 const LOCHIACCURACY = true
 
@@ -11,19 +11,19 @@ class Location extends Component {
 	state = {
 		initialPosition: 'unknown',
 		lastPosition: 'unknown',
-	};
+	}
 
-	watchID: ?number = null;
+	watchID: ?number = null
 
 	componentDidMount = () => {
 		if (Platform.OS === 'ios') {
-			Geolocation.setRNConfiguration({ authorizationLevel: 'always' });
+			Geolocation.setRNConfiguration({ authorizationLevel: 'always' })
 		}
 		Geolocation.getCurrentPosition(
 			position => {
-				const initialPosition = JSON.stringify(position);
-				this.setState({ initialPosition });
-				this.props.firebase.shared.createMovementEntry(initialPosition)
+				const initialPosition = JSON.stringify(position)
+				this.setState({ initialPosition })
+				this.props.firebase.shared.createLocationEntry(position)
 			},
 			error => Alert.alert('Error', JSON.stringify(error)),
 			{
@@ -31,16 +31,16 @@ class Location extends Component {
 				timeout: parseInt(LOCTIMEOUT), 
 				maximumAge: parseInt(LOCMAXAGE)
 			},
-		);
+		)
 		this.watchID = Geolocation.watchPosition(position => {
-			const lastPosition = JSON.stringify(position);
-			this.setState({ lastPosition });
-		});
-	};
+			const lastPosition = JSON.stringify(position)
+			this.setState({ lastPosition })
+		})
+	}
 
 	componentWillUnmount = () =>
 		this.watchID != null &&
-			Geolocation.clearWatch(this.watchID);
+			Geolocation.clearWatch(this.watchID)
 
 	render() {
 		return (
@@ -54,7 +54,7 @@ class Location extends Component {
 					{this.state.lastPosition}
 				</Text>
 			</View>
-		);
+		)
 	}
 }
 

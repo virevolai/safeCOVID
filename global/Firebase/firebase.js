@@ -25,14 +25,19 @@ class Firebase {
 	checkUserAuth = userFn =>
 		firebase.auth().onAuthStateChanged((user) => {
 			if (!user) {
-					firebase.auth().signInAnonymously().then((anonUser) => {
-						const { uid } = anonUser.user
-						console.log('Firebase::checkUserAuth: uid is ', uid)
-						const { OS, Version } = Platform
-						this.createNewDeviceUser({ uid, OS, Version })
-					})
+					firebase.auth().signInAnonymously()
+						.then((anonUser) => {
+							const { uid } = anonUser.user
+							console.log('Firebase::checkUserAuth: uid is ', uid)
+							const { OS, Version } = Platform
+							this.createNewDeviceUser({ uid, OS, Version })
+								.then(() =>
+									userFn(anonUser)
+								)
+						})
+			} else {
+				userFn(user)
 			}
-			userFn(user)
 		})
 
 	signOut = () =>
@@ -75,9 +80,29 @@ class Firebase {
 			.collection('movement')
 	}
 
-	createMovementEntry = (mvmt) =>
-		this.getMovement
-			.add(this.appendTs(mvmt))
+	createMovementEntry = (mvmt) => {
+		console.log('Firebase::createMovementEntry: Trying to insert', mvmt)
+		return this.getMovement
+			.add(mvmt)
+			.catch((e) => 
+				console.log('Firebase::createMovementEntry: Got error ', { e })
+			)
+	}
+
+	// ----- LOCATION 
+	get getLocation() {
+		return this.currentDeviceUser
+			.collection('location')
+	}
+
+	createLocationEntry = (loc) => {
+		console.log('Firebase::createLocationEntry: Trying to insert', loc)
+		return this.getLocation
+			.add(loc)
+			.catch((e) => 
+				console.log('Firebase::createLocationEntry: Got error ', { e })
+			)
+	}
 
 	// ----- BLUETOOTH
 	get getBluetooth() {

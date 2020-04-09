@@ -222,6 +222,8 @@ PODS:
   - react-native-ble-plx-swift (1.1.1)
   - react-native-geolocation (2.0.2):
     - React
+  - react-native-safe-area-context (0.7.3):
+    - React
   - React-RCTActionSheet (0.61.5):
     - React-Core/RCTActionSheetHeaders (= 0.61.5)
   - React-RCTAnimation (0.61.5):
@@ -257,11 +259,13 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
     - ReactCommon/jscallinvoker (= 0.61.5)
+  - RNCMaskedView (0.1.7):
+    - React
   - RNGestureHandler (1.6.1):
     - React
-  - RNReanimated (1.7.1):
+  - RNReanimated (1.8.0):
     - React
-  - RNScreens (2.2.0):
+  - RNScreens (2.4.0):
     - React
   - RNSensors (5.4.1):
     - React
@@ -316,6 +320,7 @@ DEPENDENCIES:
   - react-native-ble-plx (from `../node_modules/react-native-ble-plx`)
   - react-native-ble-plx-swift (from `../node_modules/react-native-ble-plx`)
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
+  - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -327,6 +332,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -409,6 +415,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-ble-plx"
   react-native-geolocation:
     :path: "../node_modules/@react-native-community/geolocation"
+  react-native-safe-area-context:
+    :path: "../node_modules/react-native-safe-area-context"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -429,6 +437,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCMaskedView:
+    :path: "../node_modules/@react-native-community/masked-view"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
@@ -497,6 +507,7 @@ SPEC CHECKSUMS:
   react-native-ble-plx: 304c7bee074a05581672c9990f375b3906808718
   react-native-ble-plx-swift: eb64f02b988becb84a60164aba9fab5d6ddb6dc8
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
+  react-native-safe-area-context: e200d4433aba6b7e60b52da5f37af11f7a0b0392
   React-RCTActionSheet: 600b4d10e3aea0913b5a92256d2719c0cdd26d76
   React-RCTAnimation: 791a87558389c80908ed06cc5dfc5e7920dfa360
   React-RCTBlob: d89293cc0236d9cb0933d85e430b0bbe81ad1d72
@@ -507,9 +518,10 @@ SPEC CHECKSUMS:
   React-RCTText: 9ccc88273e9a3aacff5094d2175a605efa854dbe
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
+  RNCMaskedView: 76c40a1d41c3e2535df09246a2b5487f04de0814
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
-  RNReanimated: 4e102df74a9674fa943e05f97f3362b6e44d0b48
-  RNScreens: 812b79d384e2bea7eebc4ec981469160d4948fd5
+  RNReanimated: 955cf4068714003d2f1a6e2bae3fb1118f359aff
+  RNScreens: b5c0e1b2b04512919e78bd3898e144a157ce2363
   RNSensors: 0c25e336a6302bc70870b15f190c6fdb014bf24c
   UMAppLoader: 90273a65f9b1d789214e0c913dfcabc7a1b1590e
   UMBarCodeScannerInterface: 9dc692b87e5f20fe277fa57aa47f45d418c3cc6c

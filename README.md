@@ -43,3 +43,6 @@ To compile and run your project, execute one of the following commands:
 ```
 
 For react-native-dotenv, update babel.config.js not .babelrc
+
+Android studio seems to be complainy... yarn android works 100%. It's probably because I dont know which android studio warnings to ignore.
+
