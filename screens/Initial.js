@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Button, Image, Animated } from 'react-native';
-import { withFirebaseHOC } from './global/Firebase'
+import { withFirebaseHOC } from '../global/Firebase'
 
 const DURATION=2000
 
@@ -55,7 +55,7 @@ class Initial extends Component {
 			>
 				<Image
 					style={{width: 200, height: 200}}
-					source={require('./img/safeCOVID.png')}
+					source={require('../img/safeCOVID.png')}
 				/>
 				<Animated.View
 					style={{

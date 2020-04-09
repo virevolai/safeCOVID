@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { withFirebaseHOC } from '../global/Firebase'
-import Vote from '../Vote/Vote'
-import Initial from '../Initial'
+import Vote from '../screens/Vote'
+import Initial from '../screens/Initial'
 
 const Stack = createStackNavigator()
 
