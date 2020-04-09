@@ -51,4 +51,6 @@ target 'safeCOVID' do
 
   pod 'RNSensors', :path => '../node_modules/react-native-sensors'
 
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+
 end

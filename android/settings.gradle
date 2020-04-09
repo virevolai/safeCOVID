@@ -1,4 +1,6 @@
 rootProject.name = 'safeCOVID'
+include ':react-native-safe-area-context'
+project(':react-native-safe-area-context').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-safe-area-context/android')
 include ':react-native-sensors'
 project(':react-native-sensors').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-sensors/android')
 include ':@react-native-community_geolocation'

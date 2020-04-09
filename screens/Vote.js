@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context';
 import BleCheck from '../global/BleCheck'
 import Location from '../global/Location'
 import Movement from '../global/Movement'
@@ -10,12 +11,12 @@ import { withFirebaseHOC } from '../global/Firebase'
 function Vote(props) {
 	console.log('Vote::render: Init')
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container}>
 			<Score />
 			<Location />
 			<BleCheck />
 			<Movement />
-		</View>
+		</SafeAreaView>
 	)
 }
 
