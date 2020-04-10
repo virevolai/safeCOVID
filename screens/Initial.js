@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Button, Image, Animated } from 'react-native';
+import { Colors, textStyle } from '../global/styles/'
 import { withFirebaseHOC } from '../global/Firebase'
 
 const DURATION=2000
@@ -51,7 +52,7 @@ class Initial extends Component {
 	render() {
 		return(
 			<View 
-				style={{flex:1, justifyContent: 'center', alignItems: 'center' }}
+				style={{flex:1, justifyContent: 'center', alignItems: 'center', backgroundColor: Colors.Primary2 }}
 			>
 				<Image
 					style={{width: 200, height: 200}}
@@ -64,8 +65,8 @@ class Initial extends Component {
 				>
 					<Text 
 						style={[
-							// textStyle.normal,
-							{ 'fontSize': 20 },
+							textStyle.normal,
+							{ fontSize: 40, color: Colors.Secondary3 },
 						]}
 					>
 						safe together

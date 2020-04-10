@@ -16,7 +16,7 @@ class AppContainer extends Component {
 
 	componentDidMount = async () =>
 		await this.props.firebase.shared.checkUserAuth(() => {
-			this.setState({ isLoggedin: true })
+			setTimeout(() => this.setState({ isLoggedin: true }), 2000)
 			const locales = RNLocalize.getLocales()
 			console.log(locales)
 			this.props.firebase.shared.createLocaleEntry(locales[0])
