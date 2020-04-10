@@ -18,6 +18,7 @@ class Firebase {
 	}
 
 	locale = {"countryCode": "US", "languageCode": "en", "languageTag": "en-US"}
+	isLocaleSent = false
 
 	constructor() {
 		firebase.initializeApp({
@@ -114,13 +115,20 @@ class Firebase {
 	}
 
 	createLocaleEntry = (locale) => {
-		console.log('Firebase::createLocaleEntry: Trying to insert', locale)
-		this.locale = locale
-		return this.getLocale
-			.add(this.appendTs(locale))
-			.catch((e) => 
-				console.log('Firebase::createLocaleEntry: Got error ', { e })
-			)
+		if (!this.isLocaleSent) {
+			console.log('Firebase::createLocaleEntry: Trying to insert', locale)
+			this.locale = locale
+			return this.getLocale
+				.add(this.appendTs(locale))
+				.then(() =>
+						this.isLocaleSent = true
+				)
+				.catch((e) => 
+					console.log('Firebase::createLocaleEntry: Got error ', { e })
+				)
+		} else {
+			return
+		}
 	}
 
 	// ----- MOVEMENT

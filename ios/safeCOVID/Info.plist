@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -60,7 +60,9 @@
 	<key>NSRemindersUsageDescription</key>
 	<string>Allow safeCOVID to access your reminders</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Allow safeCOVID to access Bluetooth to make warn you if you are not among other safe people</string>
+	<string>Allow safeCOVID to access Bluetooth to warn you if you are not among other safe people</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Allow safeCOVID to access Bluetooth to warn you if you are not among other safe people</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>
