@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { Colors, textStyle } from '../global/styles'
 import { withFirebaseHOC } from '../global/Firebase'
 import Vote from '../screens/Vote'
 import Initial from '../screens/Initial'
@@ -23,12 +24,27 @@ class AppContainer extends Component {
 			<SafeAreaProvider>
 				<NavigationContainer>
 					{ this.state.isLoggedin ? (
-						<Stack.Navigator>
-							<Stack.Screen name="safeCOVID" component={Vote} />
+						<Stack.Navigator
+								screenOptions={{
+									headerStyle: {
+										backgroundColor: Colors.Primary3,
+									},
+									headerTintColor: Colors.Pbackground,
+									headerTitleStyle: {
+										fontWeight: 'bold',
+									},
+								}}
+						>
+							<Stack.Screen
+								name="safeCOVID" component={Vote}
+							/>
 						</Stack.Navigator>
 					) : (
 						<Stack.Navigator>
-							<Stack.Screen name="Initial" component={Initial} />
+							<Stack.Screen 
+								name="Initial" component={Initial} 
+								options={{ headerShown: false }} 
+							/>
 						</Stack.Navigator>
 					)}
 				</NavigationContainer>
