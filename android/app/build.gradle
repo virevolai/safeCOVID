@@ -82,6 +82,20 @@ apply from: '../../node_modules/react-native-unimodules/gradle.groovy'
 apply from: "../../node_modules/react-native/react.gradle"
 apply from: "../../node_modules/expo-updates/expo-updates.gradle"
 
+/* (Saurabh) Password from keytool, see https://pilloxa.gitlab.io/posts/safer-passwords-in-gradle/ */
+def getPassword(String currentUser, String keyChain) {
+   def stdout = new ByteArrayOutputStream()
+   def stderr = new ByteArrayOutputStream()
+   exec {
+       commandLine 'security', '-q', 'find-generic-password', '-a', currentUser, '-s', keyChain, '-w'
+       standardOutput = stdout
+       errorOutput = stderr
+       ignoreExitValue true
+   }
+   //noinspection GroovyAssignabilityCheck
+      stdout.toString().trim()
+}
+
 /**
  * Set this to true to create two separate APKs instead of one:
  *   - An APK that only works on ARM devices
@@ -97,6 +111,8 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
+def pass = getPassword("saurabh@virevol.com","android_keystore")
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -108,6 +124,16 @@ android {
         versionCode 1
         versionName "1.0.0"
         multiDexEnabled true
+    }
+    signingConfigs {
+        release {
+            if (project.hasProperty('SAFECOVID_UPLOAD_STORE_FILE')) {
+                storeFile file(SAFECOVID_UPLOAD_STORE_FILE)
+                storePassword pass
+                keyAlias SAFECOVID_UPLOAD_KEY_ALIAS
+                keyPassword pass
+            }
+        }
     }
     splits {
         abi {
@@ -121,6 +147,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
