@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import { Platform, Text, View } from 'react-native';
-import { BleManager } from 'react-native-ble-plx';
-import { SCAN_TIMEOUT } from 'react-native-dotenv'
+import React, { Component } from 'react'
+import { Platform, Text, View } from 'react-native'
+import { BleManager } from 'react-native-ble-plx'
 import { Colors, textStyle } from '../global/styles/'
 import { withFirebaseHOC } from '../global/Firebase'
 
 class BleCheck extends Component {
 
 	constructor() {
-		super();
-		this.manager = new BleManager();
+		super()
+		this.manager = new BleManager()
 		this.state = {info: "", values: {}, isScanning: false,  devices: new Set(), prevDevices: new Set()}
 	}
 
@@ -41,7 +40,7 @@ class BleCheck extends Component {
 
 	stopDeviceScanTimeout = () =>
 		this.state.isScanning && 
-			setTimeout(this.manager.stopDeviceScan(), 5000)
+			setTimeout(this.manager.stopDeviceScan(), this.props.firebase.shared.config.BLE_SCAN_TIMEOUT)
 
 	scanAndConnect = () => {
 		this.manager.startDeviceScan(
@@ -63,7 +62,7 @@ class BleCheck extends Component {
 		)
 
 		const { devices } = this.state
-		if (devices.size > 0 && devices !== prevDevices) {
+		if (devices.size > 0 && devices !== prevDevices && this.props.firebase.shared.config.COLLECT_BLE) {
 			console.log('BleCheck::scanAndConnect: Saving devices')
 			this.props.firebase.shared.createBluetoothEntry({ scans: Array.from(devices).join(',') })
 				.then(() =>

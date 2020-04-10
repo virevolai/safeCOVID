@@ -8,6 +8,15 @@ import { API_KEY, AUTH_DOMAIN, DATABASE_URL, PROJECT_ID, STORAGE_BUCKET, MESSAGI
 // Can it be broken up in a nice way but provide the same interface? 
 class Firebase {
 
+	config = {
+		COLLECT_BLE: true,
+		BLE_SCAN_TIMEOUT: 5000,
+		COLLECT_LOC: true,
+		LOC_MAX_AGE: 1000,
+		LOC_TIMEOUT: 20000,
+		COLLECT_MVMT: true,
+	}
+
 	constructor() {
 		firebase.initializeApp({
 			apiKey: API_KEY,
@@ -18,6 +27,7 @@ class Firebase {
 			messagingSenderId: MESSAGING_SENDER_ID,
 			appId: APP_ID,
 		})
+		this.getConfig()
 		console.log('Firebase::constructor: Initialized')
 	}
 
@@ -55,6 +65,17 @@ class Firebase {
 			.collection('schemas')
 			.doc(CURRENT_SCHEMA_VERSION)
 	}
+
+	// ----- DEVICE USERS
+	getConfig = () =>
+		this.currentSchema
+			.collection('config')
+			.doc('0')
+			.get()
+			.then(async (doc) => {
+				this.config = await doc.data()
+				console.log('Firebase::getConfig: config is now ', this.config)
+			})
 
 	// ----- DEVICE USERS
 	get deviceUsers() {

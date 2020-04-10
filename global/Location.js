@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { TouchableOpacity, StyleSheet, Text, View, Alert, Platform } from 'react-native'
 import Geolocation from '@react-native-community/geolocation'
-import { LOCTIMEOUT, LOCMAXAGE } from 'react-native-dotenv'
 import helpers from '../global/helpers'
 import { textStyle } from '../global/styles/'
 import { withFirebaseHOC } from '../global/Firebase'
@@ -29,8 +28,8 @@ class Location extends Component {
 			error => Alert.alert('Error', JSON.stringify(error)),
 			{
 				enableHighAccuracy: LOCHIACCURACY, 
-				timeout: parseInt(LOCTIMEOUT), 
-				maximumAge: parseInt(LOCMAXAGE)
+				timeout: parseInt(this.props.firebase.shared.config.LOC_TIMEOUT), 
+				maximumAge: parseInt(this.props.firebase.shared.config.LOC_MAX_AGE)
 			},
 		)
 		this.watchID = Geolocation.watchPosition(p2 => {
@@ -49,7 +48,7 @@ class Location extends Component {
 				)
 				console.log('Distance is ', d)
 				this.setState({ distance: d })
-				if (d > 0.001) {
+				if (d > 0.001 && this.props.firebase.shared.config.COLLECT_LOC) {
 					console.log('Location::componentDidMount: Moved past the threshold')
 					this.props.firebase.shared.createLocationEntry(position)
 				}

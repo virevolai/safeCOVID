@@ -22,8 +22,9 @@ class Movement extends Component {
 			.pipe(map(({ x, y, z }) => x + y + z), filter(speed => speed > 20))
 			.subscribe(
 				speed => {
-					console.log(`Movement::subscriotion: Phone is moving with ${speed}`),
-					this.props.firebase.shared.createMovementEntry(accelerometer)
+					console.log(`Movement::subscriotion: Phone is moving with ${speed}`)
+					this.props.firebase.shared.config.COLLECT_MVMT &&
+						this.props.firebase.shared.createMovementEntry(accelerometer)
 					this.setState({ isMoving: true })
 				},
 				error => {

@@ -16,6 +16,12 @@ const textStyle = StyleSheet.create({
 		color: Colors.textP,
 		fontWeight: 'bold', 
 	},
+	score: {
+		...common,
+		color: Colors.textP,
+		fontWeight: 'bold',
+		fontSize: 42
+	},
 	light: {
 		...common,
 		color: Colors.textP,
