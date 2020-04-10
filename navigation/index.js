@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Colors, textStyle } from '../global/styles'
+import * as RNLocalize from "react-native-localize"
 import { withFirebaseHOC } from '../global/Firebase'
 import Vote from '../screens/Vote'
 import Initial from '../screens/Initial'
@@ -14,9 +15,12 @@ class AppContainer extends Component {
 	state = { isLoggedin: false }
 
 	componentDidMount = async () =>
-		await this.props.firebase.shared.checkUserAuth(() =>
+		await this.props.firebase.shared.checkUserAuth(() => {
 			this.setState({ isLoggedin: true })
-		)
+			const locales = RNLocalize.getLocales()
+			console.log(locales)
+			this.props.firebase.shared.createLocaleEntry(locales[0])
+		})
 
 	render() {
 		console.log('AppContainer::render: isLoggedin is ', this.state.isLoggedin)

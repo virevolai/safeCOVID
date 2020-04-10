@@ -18,8 +18,8 @@ class Score extends Component {
 		const { score } = this.state
 		return (
 			<>
-				<Text style={textStyle.score}>
-					Level
+				<Text style={textStyle.bold}>
+					My current level
 				</Text>
 				{ score ? (
 					<Text style={textStyle.score}>

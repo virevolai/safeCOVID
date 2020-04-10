@@ -20,7 +20,7 @@ const textStyle = StyleSheet.create({
 		...common,
 		color: Colors.textP,
 		fontWeight: 'bold',
-		fontSize: 42
+		fontSize: 92
 	},
 	light: {
 		...common,

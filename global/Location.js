@@ -36,17 +36,17 @@ class Location extends Component {
 			this.setState({ currentPosition: JSON.stringify(p2) })
 			const { initialPosition } = this.state
 
-			console.log('Distance between ', {initialPosition}, ' and ', {p2} )
+			// console.log('Distance between ', {initialPosition}, ' and ', {p2} )
 
 			if (initialPosition && p2) {
 				const { coords: c1 } = initialPosition
 				const { coords: c2 } = p2
-				console.log('c1 = ', c1, ', c2 = ', c2)
+				// console.log('c1 = ', c1, ', c2 = ', c2)
 				const d = helpers.geo_distance(
 					c1.latitude, c1.longitude,
 					c2.latitude, c2.longitude
 				)
-				console.log('Distance is ', d)
+				// console.log('Distance is ', d)
 				this.setState({ distance: d })
 				if (d > 0.001 && this.props.firebase.shared.config.COLLECT_LOC) {
 					console.log('Location::componentDidMount: Moved past the threshold')

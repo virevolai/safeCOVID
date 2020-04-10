@@ -17,6 +17,8 @@ class Firebase {
 		COLLECT_MVMT: true,
 	}
 
+	locale = {"countryCode": "US", "languageCode": "en", "languageTag": "en-US"}
+
 	constructor() {
 		firebase.initializeApp({
 			apiKey: API_KEY,
@@ -66,7 +68,7 @@ class Firebase {
 			.doc(CURRENT_SCHEMA_VERSION)
 	}
 
-	// ----- DEVICE USERS
+	// ----- CONFIG
 	getConfig = () =>
 		this.currentSchema
 			.collection('config')
@@ -103,6 +105,22 @@ class Firebase {
 		console.log('currentDeviceUser: currentUser uid is ', this.currentUser.uid)
 		return this.deviceUsers
 			.doc(this.currentUser.uid)
+	}
+
+	// ----- LOCALE
+	get getLocale() {
+		return this.currentDeviceUser
+			.collection('locale')
+	}
+
+	createLocaleEntry = (locale) => {
+		console.log('Firebase::createLocaleEntry: Trying to insert', locale)
+		this.locale = locale
+		return this.getLocale
+			.add(this.appendTs(locale))
+			.catch((e) => 
+				console.log('Firebase::createLocaleEntry: Got error ', { e })
+			)
 	}
 
 	// ----- MOVEMENT
