@@ -17,7 +17,7 @@ class AppContainer extends Component {
 		super()
 		this.state = { isLoggedin: false }
 
-		this.props.firebase.shared.checkUserAuth(() => {
+		props.firebase.shared.checkUserAuth(() => {
 			setTimeout(() => this.setState({ isLoggedin: true }), 2000)
 			const locales = RNLocalize.getLocales()
 			console.log(locales)

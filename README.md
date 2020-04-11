@@ -46,7 +46,12 @@ For react-native-dotenv, update babel.config.js not .babelrc
 
 Android studio seems to be complainy... yarn android works 100%. It's probably because I dont know which android studio warnings to ignore.
 
-For android, run this:
+For android
+-----
+Before releasing, build with `targetSdkVersion = 28`.
+For some reason, my emulator doesn't work with that and needs 27
+
+run this:
 ```
 ./gradlew bundleRelease
 ```
