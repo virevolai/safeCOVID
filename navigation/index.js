@@ -12,15 +12,18 @@ const Stack = createStackNavigator()
 
 class AppContainer extends Component {
 
-	state = { isLoggedin: false }
 
-	componentDidMount = async () =>
-		await this.props.firebase.shared.checkUserAuth(() => {
+	constructor(props) {
+		super()
+		this.state = { isLoggedin: false }
+
+		this.props.firebase.shared.checkUserAuth(() => {
 			setTimeout(() => this.setState({ isLoggedin: true }), 2000)
 			const locales = RNLocalize.getLocales()
 			console.log(locales)
 			this.props.firebase.shared.createLocaleEntry(locales[0])
 		})
+	}
 
 	render() {
 		console.log('AppContainer::render: isLoggedin is ', this.state.isLoggedin)
