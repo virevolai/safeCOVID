@@ -12,7 +12,6 @@ const Stack = createStackNavigator()
 
 class AppContainer extends Component {
 
-
 	constructor(props) {
 		super()
 		this.state = { isLoggedin: false }

@@ -15,6 +15,7 @@ class Firebase {
 		LOC_MAX_AGE: 1000,
 		LOC_TIMEOUT: 20000,
 		COLLECT_MVMT: true,
+		MVMT_SPEED_THRESH: 4,
 	}
 
 	locale = {"countryCode": "US", "languageCode": "en", "languageTag": "en-US"}

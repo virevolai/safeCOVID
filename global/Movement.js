@@ -18,8 +18,9 @@ class Movement extends Component {
 		super()
 		// setUpdateIntervalForType(SensorTypes.Accelerometer, 400); // defaults to 100ms
 
+		const { COLLECT_MVMT, MVMT_SPEED_THRESH } = this.props.firebase.shared.config
 		const subscription = accelerometer
-			.pipe(map(({ x, y, z }) => x + y + z), filter(speed => speed > 20))
+			.pipe(map(({ x, y, z }) => x + y + z), filter(speed => speed > MVMT_SPEED_THRESH))
 			.subscribe(
 				speed => {
 					console.log(`Movement::subscriotion: Phone is moving with ${speed}`)

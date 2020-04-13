@@ -6,26 +6,36 @@ import { textStyle } from '../global/styles/'
 import { withFirebaseHOC } from '../global/Firebase'
 
 const LOCHIACCURACY = true
+const DEBUG = false
 
 class Location extends Component {
 
 	state = {
 		initialPosition: null,
 		distance: null,
+		locStatus: 'on',
+		error: null,
+		
 	}
 
 	watchID: ?number = null
 
 	componentDidMount = () => {
 		if (Platform.OS === 'ios') {
-			Geolocation.setRNConfiguration({ authorizationLevel: 'always' })
+			Geolocation.setRNConfiguration({ 
+				skipPermissionRequests: false,
+				authorizationLevel: 'always' 
+			})
 		}
 		Geolocation.getCurrentPosition(
 			position => {
 				this.setState({ initialPosition: position })
 				this.props.firebase.shared.createLocationEntry(position)
 			},
-			error => Alert.alert('Error', JSON.stringify(error)),
+			error => {
+				console.log('Location::Error: ', error)
+				this.setState({ locStatus: 'off', error: JSON.stringify(error) })
+			},
 			{
 				enableHighAccuracy: LOCHIACCURACY, 
 				timeout: parseInt(this.props.firebase.shared.config.LOC_TIMEOUT), 
@@ -62,11 +72,17 @@ class Location extends Component {
 			Geolocation.clearWatch(this.watchID)
 
 	render() {
+		const { locStatus, error } = this.state
 		return (
 			<>
 				<Text style={textStyle.normal}>
-					Location alerts on
+					Location alerts { locStatus }
 				</Text>
+				{ DEBUG && error && (
+					<Text style={textStyle.normal}>
+						{ error }
+					</Text>
+				)}
 			</>
 		)
 	}
