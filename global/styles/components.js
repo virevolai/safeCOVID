@@ -16,7 +16,7 @@ const componentStyle = StyleSheet.create({
 		marginTop: 200,
 	},
 	button: {
-		color: Colors.Primary2,
+		color: Colors.Primary,
 	}
 })
 
