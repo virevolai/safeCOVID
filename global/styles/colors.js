@@ -1,5 +1,4 @@
 const common = {
-	Primary1: '#FEC4AC', // peach
 	Primary2: '#012842', // navy
 	Primary3: '#D6580E', // orange
 	Primary4: '#CE283D', // red
@@ -14,9 +13,9 @@ const Colors = {
 
 	...common,
 
-	Primary	 : common.Primary1,
-	Plight	 : common.Primary2, // '#FCE4EC', // '#df78ef',
-	Pdark		 : common.Primary3, // '#F48FB1', //'#790e8b',
+	Primary	 : common.Primary2,
+	Plight	 : common.Primary2,
+	Pdark		 : common.Primary3,
 
 	Secondary: common.Secondary1,
 	Slight	 : '#5ddef4',
@@ -24,7 +23,7 @@ const Colors = {
 
 	textP		 : common.Primary2,
 	textS		 : common.Primary2,
-	textB		 : common.Primary1, // Button text, same as secondary
+	textB		 : common.Primary4, // Button text, same as secondary
 	textDisabled: 'grey',
 	textFontFamily: "Helvetica",
 

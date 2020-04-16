@@ -18,7 +18,7 @@ class Score extends Component {
 	render() {
 		const { noScoreMsg, score } = this.state
 		return (
-			<>
+			<View>
 				<Text style={textStyle.bold}>
 					My current level
 				</Text>
@@ -31,7 +31,7 @@ class Score extends Component {
 						{ noScoreMsg }
 					</Text>
 				)}
-			</>
+			</View>
 		)
 	}
 }

@@ -5,7 +5,7 @@ import BleCheck from '../global/BleCheck'
 // import Location from '../global/Location'
 import Movement from '../global/Movement'
 import Score from '../global/Score'
-import { Colors } from '../global/styles/'
+import { Colors, componentStyle } from '../global/styles/'
 import { withFirebaseHOC } from '../global/Firebase'
 
 class Vote extends Component {
@@ -45,37 +45,32 @@ class Vote extends Component {
 		const { videoTutorial, videoMask, videoWash } = this.state
 		console.log('Vote::render: Init')
 		return (
-			<View style={styles.container}>
-				<Button
-					title="Tutorial"
-					onPress={() => this.props.navigation.navigate('Tutorial', { videoTutorial })}
-					disabled={!videoTutorial}
-				/>
+			<View style={componentStyle.container}>
 				<Score />
 				<BleCheck />
 				<Movement />
-				<Button
-					title="Masks"
-					onPress={() => this.props.navigation.navigate('Mask', { videoMask })}
-					disabled={!videoMask}
-				/>
-				<Button
-					title="Wash hands"
-					onPress={() => this.props.navigation.navigate('Wash', { videoWash })}
-					disabled={!videoWash}
-				/>
+				<View
+					style={componentStyle.footer}
+				>
+					<Button
+						title="Tutorial"
+						onPress={() => this.props.navigation.navigate('Tutorial', { videoTutorial })}
+						disabled={!videoTutorial}
+					/>
+					<Button
+						title="Masks"
+						onPress={() => this.props.navigation.navigate('Tutorial', { videoMask })}
+						disabled={!videoMask}
+					/>
+					<Button
+						title="Wash hands"
+						onPress={() => this.props.navigation.navigate('Tutorial', { videoWash })}
+						disabled={!videoWash}
+					/>
+				</View>
 			</View>
 		)
 	}
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: Colors.Pbackground,
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-})
 
 export default withFirebaseHOC(Vote)

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { Text, View, Button } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { Colors, textStyle } from '../global/styles/'
+import { Colors, textStyle, componentStyle } from '../global/styles/'
 import YouTube from 'react-native-youtube'
 import { YOUTUBE_ANDROID_API_KEY } from 'react-native-dotenv'
 import { withFirebaseHOC } from '../global/Firebase'
@@ -12,7 +12,7 @@ function Tutorial({ route, navigation }) {
 		console.log('Tutorial: got ', route)
 
 		return (
-			<View style={styles.container}>
+			<View style={componentStyle.container}>
 				<YouTube
 					apiKey={YOUTUBE_ANDROID_API_KEY}
 					videoId={route.params.video}
@@ -22,10 +22,10 @@ function Tutorial({ route, navigation }) {
 					// onReady={e => this.setState({ isReady: true })}
 					// onChangeState={e => this.setState({ status: e.state })}
 					// onChangeQuality={e => this.setState({ quality: e.quality })}
-					onError={e => console.log('Tutorial::render:: ', error )}
+					onError={e => console.log('Tutorial::render:: ', e)}
 					style={{ alignSelf: 'stretch', height: 300 }}
 				/>
-				<View style={{paddingTop: 100 }}>
+				<View style={componentStyle.footer}>
 					<Button
 						title='Go Back'
 						onPress={() => navigation.goBack()}
@@ -35,13 +35,5 @@ function Tutorial({ route, navigation }) {
 		)
 }
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: Colors.Pbackground,
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-})
 
 export default withFirebaseHOC(Tutorial)
