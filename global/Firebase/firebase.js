@@ -34,6 +34,7 @@ class Firebase {
 
 	config = {
 		isFirstTime: true,
+		UNSCORED_MESSAGE_EN: 'Not scored yet, please wait',
 		COLLECT_BLE: true,
 		BLE_SCAN_TIMEOUT: 5000,
 		COLLECT_LOC: true,

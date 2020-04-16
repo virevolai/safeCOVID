@@ -5,9 +5,10 @@ import { withFirebaseHOC } from '../global/Firebase'
 
 class Score extends Component {
 
-	state = { score: null, scoredAt: null }
+	state = { noScoreMsg: null, score: null, scoredAt: null }
 
 	componentDidMount = () => {
+		this.setState({ noScoreMsg: this.props.firebase.shared.config.UNSCORED_MESSAGE_EN || 'Not scored yet, please wait' })
 		this.props.firebase.shared.userScore((scoreObj) => {
 			const { score, scoredAt } = scoreObj
 			this.setState({ score, scoredAt })
@@ -15,7 +16,7 @@ class Score extends Component {
 	}
 
 	render() {
-		const { score } = this.state
+		const { noScoreMsg, score } = this.state
 		return (
 			<>
 				<Text style={textStyle.bold}>
@@ -27,7 +28,7 @@ class Score extends Component {
 					</Text>
 				) : (
 					<Text style={textStyle.bold}>
-						Not scored yet, please wait
+						{ noScoreMsg }
 					</Text>
 				)}
 			</>
