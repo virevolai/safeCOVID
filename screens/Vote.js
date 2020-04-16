@@ -10,7 +10,7 @@ import { withFirebaseHOC } from '../global/Firebase'
 
 class Vote extends Component {
 
-	state = { video : null }
+	state = { videoTutorial : null, videoMask: null, videoWash: null }
 
 	componentDidMount (props) {
 		const locales = RNLocalize.getLocales()
@@ -18,26 +18,52 @@ class Vote extends Component {
 		this.props.firebase.shared.getVideo(
 			'Tutorial',
 			locales[0].languageTag,
-			(video) => {
-				console.log('Vote::componentDidMount: video is ', video)
-				this.setState({ video })
+			(videoTutorial) => {
+				console.log('Vote::componentDidMount: videoTutorial is ', videoTutorial)
+				this.setState({ videoTutorial })
+			}
+		)
+		this.props.firebase.shared.getVideo(
+			'Mask',
+			locales[0].languageTag,
+			(videoMask) => {
+				console.log('Vote::componentDidMount: videoMask is ', videoMask)
+				this.setState({ videoMask })
+			}
+		)
+		this.props.firebase.shared.getVideo(
+			'Wash',
+			locales[0].languageTag,
+			(videoWash) => {
+				console.log('Vote::componentDidMount: videoWash is ', videoWash)
+				this.setState({ videoWash })
 			}
 		)
 	}
 
 	render() {
-		const { video } = this.state
+		const { videoTutorial, videoMask, videoWash } = this.state
 		console.log('Vote::render: Init')
 		return (
 			<View style={styles.container}>
-				<Score />
 				<Button
 					title="Tutorial"
-					onPress={() => this.props.navigation.navigate('Tutorial', { video })}
-					disabled={!video}
+					onPress={() => this.props.navigation.navigate('Tutorial', { videoTutorial })}
+					disabled={!videoTutorial}
 				/>
+				<Score />
 				<BleCheck />
 				<Movement />
+				<Button
+					title="Masks"
+					onPress={() => this.props.navigation.navigate('Mask', { videoMask })}
+					disabled={!videoMask}
+				/>
+				<Button
+					title="Wash hands"
+					onPress={() => this.props.navigation.navigate('Wash', { videoWash })}
+					disabled={!videoWash}
+				/>
 			</View>
 		)
 	}

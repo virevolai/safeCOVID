@@ -27,7 +27,7 @@ class Score extends Component {
 					</Text>
 				) : (
 					<Text style={textStyle.bold}>
-						Not scored yet
+						Not scored yet, please wait
 					</Text>
 				)}
 			</>
