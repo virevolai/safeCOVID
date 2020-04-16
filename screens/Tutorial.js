@@ -27,6 +27,7 @@ function Tutorial({ route, navigation }) {
 				/>
 				<View style={componentStyle.footer}>
 					<Button
+						style={componentStyle.button}
 						title='Go Back'
 						onPress={() => navigation.goBack()}
 					/>

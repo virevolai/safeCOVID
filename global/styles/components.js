@@ -15,6 +15,9 @@ const componentStyle = StyleSheet.create({
 		justifyContent: 'flex-end',
 		marginTop: 200,
 	},
+	button: {
+		color: Colors.Primary2,
+	}
 })
 
 

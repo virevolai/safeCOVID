@@ -53,16 +53,19 @@ class Vote extends Component {
 					style={componentStyle.footer}
 				>
 					<Button
+						style={componentStyle.button}
 						title="Tutorial"
 						onPress={() => this.props.navigation.navigate('Tutorial', { videoTutorial })}
 						disabled={!videoTutorial}
 					/>
 					<Button
+						style={componentStyle.button}
 						title="Masks"
 						onPress={() => this.props.navigation.navigate('Tutorial', { videoMask })}
 						disabled={!videoMask}
 					/>
 					<Button
+						style={componentStyle.button}
 						title="Wash hands"
 						onPress={() => this.props.navigation.navigate('Tutorial', { videoWash })}
 						disabled={!videoWash}
