@@ -4,18 +4,45 @@ import 'firebase/firestore'
 import { Platform } from 'react-native'
 import { API_KEY, AUTH_DOMAIN, DATABASE_URL, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, APP_ID, CURRENT_SCHEMA_VERSION } from 'react-native-dotenv'
 
+
+class WaitMutex {
+
+	constructor(ms) {
+		this.ms = ms
+		this.isWaiting = false
+	}
+
+	shouldRun = (fn) => {
+		if (!this.isWaiting) {
+			setTimeout(
+				() => {
+					this.isWaiting = false
+					console.log('shouldRun:: Tired of waiting ', this.isWaiting)
+				}, 
+				this.ms
+			)
+			this.isWaiting = true
+			fn()
+		}
+		return !this.isWaiting
+	}
+}
+
 // MEH: This class is too big (JAVAesque). 
 // Can it be broken up in a nice way but provide the same interface? 
 class Firebase {
 
 	config = {
+		isFirstTime: true,
 		COLLECT_BLE: true,
 		BLE_SCAN_TIMEOUT: 5000,
 		COLLECT_LOC: true,
+		LOC_CHECK_MS: 10000,
 		LOC_MAX_AGE: 1000,
 		LOC_TIMEOUT: 20000,
 		COLLECT_MVMT: true,
-		MVMT_SPEED_THRESH: 4,
+		MVMT_CHECK_MS: 10000,
+		MVMT_SPEED_THRESH: 20,
 	}
 
 	locale = {"countryCode": "US", "languageCode": "en", "languageTag": "en-US"}
@@ -52,6 +79,7 @@ class Firebase {
 			} else {
 				userFn(user)
 			}
+			this.config.isFirstTime = false
 		})
 
 	signOut = () =>
@@ -132,6 +160,35 @@ class Firebase {
 		}
 	}
 
+	// MEH -- Creating a CMS.. bad idea
+	// ----- VIDEOS 
+	get getVideos() {
+		return this.currentSchema
+			.collection('videos')
+	}
+
+	getVideo = (id, locale, callback) =>
+		this.getVideos
+			// .doc(id)
+			.doc('dBWebB12OfDVgTOuzaAg') // TODO: Remove this
+			.get()
+			.then((doc) => {
+				const data = doc.data()
+				let video = null
+				if (locale in data) {
+					video = data[locale]
+				} else {
+					video = data['en-US']
+				}
+				console.log('Firebase::getVideo: ', locale, data, ' => ', video)
+				callback(video)
+			})
+			.catch(async (e) =>
+				console.log('Firebase::getVideo: ', e)
+			)
+
+
+
 	// ----- MOVEMENT
 	get getMovement() {
 		return this.currentDeviceUser
@@ -147,6 +204,15 @@ class Firebase {
 			)
 	}
 
+	createMovementEntryMutexed = (mvmt) => {
+		if (!this.mvmtMutex) {
+			console.log('Firebase::createMovementEntryMutexed: new')
+			this.mvmtMutex = new WaitMutex(this.config.MVMT_CHECK_MS)
+		}
+		this.config.COLLECT_MVMT && 
+			this.mvmtMutex.shouldRun(() => this.createMovementEntry(mvmt))
+	}
+
 	// ----- LOCATION 
 	get getLocation() {
 		return this.currentDeviceUser
@@ -160,6 +226,15 @@ class Firebase {
 			.catch((e) => 
 				console.log('Firebase::createLocationEntry: Got error ', { e })
 			)
+	}
+
+	createLocationEntryMutexed = (loc) => {
+		if (!this.locMutex) {
+			console.log('Firebase::createLocationEntryMutexed: new')
+			this.locMutex = new WaitMutex(this.config.LOC_CHECK_MS)
+		}
+		this.config.COLLECT_LOC && 
+			this.locMutex.shouldRun(() => this.createLocationEntry(loc))
 	}
 
 	// ----- BLUETOOTH

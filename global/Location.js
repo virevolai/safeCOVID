@@ -58,9 +58,8 @@ class Location extends Component {
 				)
 				// console.log('Distance is ', d)
 				this.setState({ distance: d })
-				if (d > 0.001 && this.props.firebase.shared.config.COLLECT_LOC) {
-					console.log('Location::componentDidMount: Moved past the threshold')
-					this.props.firebase.shared.createLocationEntry(position)
+				if (d > 0.01) {
+					this.props.firebase.shared.createLocationEntryMutexed(position)
 				}
 			}
 

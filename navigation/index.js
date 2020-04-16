@@ -7,6 +7,7 @@ import * as RNLocalize from "react-native-localize"
 import { withFirebaseHOC } from '../global/Firebase'
 import Vote from '../screens/Vote'
 import Initial from '../screens/Initial'
+import Tutorial from '../screens/Tutorial'
 
 const Stack = createStackNavigator()
 
@@ -25,11 +26,12 @@ class AppContainer extends Component {
 	}
 
 	render() {
-		console.log('AppContainer::render: isLoggedin is ', this.state.isLoggedin)
+		const { isLoggedin } = this.state
+
 		return (
 			<SafeAreaProvider>
 				<NavigationContainer>
-					{ this.state.isLoggedin ? (
+					{ isLoggedin ? (
 						<Stack.Navigator
 								screenOptions={{
 									headerStyle: {
@@ -43,6 +45,9 @@ class AppContainer extends Component {
 						>
 							<Stack.Screen
 								name="safeCOVID" component={Vote}
+							/>
+							<Stack.Screen
+								name="Tutorial" component={Tutorial}
 							/>
 						</Stack.Navigator>
 					) : (
