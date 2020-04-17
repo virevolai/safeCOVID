@@ -19,13 +19,11 @@ import { NativeEventEmitter, NativeModules } from 'react-native';
 import BLEAdvertiser from 'react-native-ble-advertiser'
 import update from 'immutability-helper';
 
-import {
-  Header,
-  Colors
-} from 'react-native/Libraries/NewAppScreen';
+import { Colors, textStyle } from '../global/styles/'
 
 import UUIDGenerator from 'react-native-uuid-generator';
 import { PermissionsAndroid } from 'react-native';
+import { withFirebaseHOC } from '../global/Firebase'
 
 export async function requestLocationPermission() {
   try {
@@ -34,7 +32,7 @@ export async function requestLocationPermission() {
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
         {
           'title': 'safeCOVID',
-          'message': 'safeCOVID  access to your location '
+          'message': 'safeCOVID access your location '
         }
       )
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
@@ -120,12 +118,12 @@ class Entry extends Component {
       requestLocationPermission();
       
       console.log("BLE Advertiser", BLEAdvertiser);
-      BLEAdvertiser.setCompanyId(0xFF); 
+      BLEAdvertiser.setCompanyId(0xAD); 
     
       UUIDGenerator.getRandomUUID((newUid) => {
         this.setState({
           uuid: newUid
-        });
+        }, () => this.start());
       });
 
       const eventEmitter = Platform.select({
@@ -137,12 +135,28 @@ class Entry extends Component {
         console.log('onDeviceFound', event);
         if (event.serviceUuids) {
           for(let i=0; i< event.serviceUuids.length; i++){
-            if (this.isValidUUID(event.serviceUuids[i]))
-              this.addDevice(event.serviceUuids[i], event.deviceName, event.rssi, new Date())   
+            if (this.isValidUUID(event.serviceUuids[i])) {
+              this.addDevice(event.serviceUuids[i], event.deviceName, event.rssi, new Date())
+							props.firebase.shared.createBluetoothEntry({ 
+								devices : {
+									scans: JSON.stringify({
+										uid: event.serviceUuids[i], 
+										deviceName: event.deviceName, 
+										rssi: event.rssi, 
+										added_ts: new Date(),
+									}),
+									added_ts: new Date()
+								}
+							})
+						}
           }
         }
       });
     }
+
+		componentWillUnmount() {
+			this.stop()
+		}
 
     start() {
       console.log(this.state.uuid, "Starting Advertising");
@@ -206,138 +220,22 @@ class Entry extends Component {
 
     render() {
       return (
-        <SafeAreaView>
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>BLE Advertiser Demo</Text>
-              <Text style={styles.sectionDescription}>Broadcasting: <Text style={styles.highlight}>{ this.short(this.state.uuid) }</Text></Text>
-            </View>
-
-            <View style={styles.sectionContainer}>
-              {this.state.isLogging ? (
-              <TouchableOpacity
-                onPress={() => this.stop()}
-                style={styles.stopLoggingButtonTouchable}>
-                <Text style={styles.stopLoggingButtonText}>
-                  Stop
-                </Text>
-              </TouchableOpacity>
-                ) : (
-              <TouchableOpacity
-                onPress={() => this.start()}
-                style={styles.startLoggingButtonTouchable}>
-                <Text style={styles.startLoggingButtonText}>
-                  Start
-                </Text>
-              </TouchableOpacity>
-              )}
-            </View>
-
-            <View style={styles.sectionContainerFlex}>
-              <Text style={styles.sectionTitle}>Devices Around</Text>
-              <FlatList
-                  data={ this.state.devicesFound }
-                  renderItem={({item}) => <Text style={styles.itemPastConnections}>{this.dateStr(item.start)} ({this.dateDiffSecs(item.start, item.end)}s): {this.short(item.uuid)} {item.rssi} {item.name}</Text>}
-                  keyExtractor={item => item.uuid}
-                  />
-            </View>
-
-            <View style={styles.sectionContainer}>
-              <TouchableOpacity
-                onPress={this.onClearArray}
-                style={styles.startLoggingButtonTouchable}>
-                <Text style={styles.startLoggingButtonText}>
-                  Clear Devices
-                </Text>
-              </TouchableOpacity>
-            </View>
-
-          </View>
-        </SafeAreaView>
+				<View style={styles.sectionContainer}>
+					<Text style={ textStyle.normal }>
+						{this.state.isLogging ? ('tracking ' + this.short(this.state.uuid)) : 'not tracking' }
+					</Text>
+				</View>
       );
     }
 }
 
 const styles = StyleSheet.create({
-  body: {
-    backgroundColor: Colors.white,
-    height: "100%",
-  },
   sectionContainerFlex: {
     flex: 1,
     marginTop: 12,
     marginBottom: 12,
-    paddingHorizontal: 24,
-  },
-  sectionContainer: {
-    flex: 0,
-    marginTop: 12,
-    marginBottom: 12,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    marginBottom: 8,
-    fontWeight: '600',
-    color: Colors.black,
-    textAlign: 'center'
-  },
-  sectionDescription: {
-    fontSize: 18,
-    fontWeight: '400',
-    textAlign: 'center',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-  startLoggingButtonTouchable: {
-    borderRadius: 12,
-    backgroundColor: '#665eff',
-    height: 52,
-    alignSelf: 'center',
-    width: 300,
-    justifyContent: 'center',
-  },
-  startLoggingButtonText: {
-    fontSize: 14,
-    lineHeight: 19,
-    letterSpacing: 0,
-    textAlign: 'center',
-    color: '#ffffff',
-  },
-  stopLoggingButtonTouchable: {
-    borderRadius: 12,
-    backgroundColor: '#fd4a4a',
-    height: 52,
-    alignSelf: 'center',
-    width: 300,
-    justifyContent: 'center',
-  },
-  stopLoggingButtonText: {
-    fontSize: 14,
-    lineHeight: 19,
-    letterSpacing: 0,
-    textAlign: 'center',
-    color: '#ffffff',
-  },
-  listPastConnections: {
-      width: "80%",
-      height: 200
-  },
-  itemPastConnections: {
-      padding: 3,
-      fontSize: 18,
-      fontWeight: '400',
+    // paddingHorizontal: 24,
   },
 });
 
-export default Entry;
+export default withFirebaseHOC(Entry);
