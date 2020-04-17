@@ -5,6 +5,7 @@ import BleCheck from '../global/BleCheck'
 // import Location from '../global/Location'
 import Movement from '../global/Movement'
 import Score from '../global/Score'
+import Entry from '../global/Entry'
 import { Colors, componentStyle } from '../global/styles/'
 import { withFirebaseHOC } from '../global/Firebase'
 
@@ -48,6 +49,7 @@ class Vote extends Component {
 			<View style={componentStyle.container}>
 				<Score />
 				<BleCheck />
+				<Entry />
 				<Movement />
 				<View
 					style={componentStyle.footer}
