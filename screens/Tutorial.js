@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, } from 'react-native'
 import Btn from '../global/Btn'
+import { componentStyle } from '../global/styles'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import YouTube from 'react-native-youtube'
@@ -27,7 +28,7 @@ function Tutorial({ route, navigation }) {
 				/>
 				<View style={componentStyle.footer}>
 					<Btn
-						title='Go Back'
+						title='🔙 Go Back'
 						onPress={() => navigation.goBack()}
 					/>
 				</View>

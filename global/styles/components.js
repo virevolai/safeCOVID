@@ -8,6 +8,12 @@ const componentStyle = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
+	header: {
+		position: 'absolute',
+		top: 50,
+		flexDirection: 'row',
+		justifyContent: 'flex-end',
+	},
 	footer: {
 		position: 'absolute',
 		bottom: 50,

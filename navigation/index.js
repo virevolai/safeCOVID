@@ -8,6 +8,7 @@ import { withFirebaseHOC } from '../global/Firebase'
 import Vote from '../screens/Vote'
 import Initial from '../screens/Initial'
 import Tutorial from '../screens/Tutorial'
+import Sick from '../screens/Sick'
 
 const Stack = createStackNavigator()
 
@@ -48,6 +49,9 @@ class AppContainer extends Component {
 							/>
 							<Stack.Screen
 								name="Tutorial" component={Tutorial}
+							/>
+							<Stack.Screen
+								name="Sick" component={Sick}
 							/>
 						</Stack.Navigator>
 					) : (

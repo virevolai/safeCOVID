@@ -170,8 +170,8 @@ class Firebase {
 
 	getVideo = (id, locale, callback) =>
 		this.getVideos
-			// .doc(id)
-			.doc('dBWebB12OfDVgTOuzaAg') // TODO: Remove this
+			.doc(id)
+			// .doc('dBWebB12OfDVgTOuzaAg') // Test video
 			.get()
 			.then((doc) => {
 				const data = doc.data()
@@ -247,6 +247,18 @@ class Firebase {
 	createBluetoothEntry = (devices) =>
 		this.getBluetooth
 			.add(this.appendTs(devices))
+
+	// ----- COVID
+	get getCOVID() {
+		return this.currentDeviceUser
+			.collection('covid')
+	}
+
+	createCOVIDEntry = (entry) => {
+		console.log('Firebase::createCOVIDEntry: Adding ', entry)
+		return this.getCOVID
+			.add(this.appendTs(entry))
+	}
 
 
 	// ----- HELPERS

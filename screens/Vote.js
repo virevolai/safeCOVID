@@ -12,7 +12,7 @@ import { withFirebaseHOC } from '../global/Firebase'
 
 class Vote extends Component {
 
-	state = { videoTutorial : null, videoMask: null, videoWash: null }
+	state = { videoTutorial : null, videoMask: null, videoWash: null, videoSick: null }
 
 	componentDidMount () {
 		const locales = RNLocalize.getLocales()
@@ -41,13 +41,33 @@ class Vote extends Component {
 				this.setState({ videoWash })
 			}
 		)
+		this.props.firebase.shared.getVideo(
+			'Sick',
+			locales[0].languageTag,
+			(videoSick) => {
+				console.log('Vote::componentDidMount: videoSick is ', videoSick)
+				this.setState({ videoSick })
+			}
+		)
 	}
 
+	onNotify = (covidEvent) =>
+		this.props.firebase.shared.createCOVIDEntry(covidEvent)
+
 	render() {
-		const { videoTutorial, videoMask, videoWash } = this.state
+		const { videoTutorial, videoMask, videoWash, videoSick } = this.state
 		console.log('Vote::render: Init')
 		return (
 			<View style={componentStyle.container}>
+				<View
+					style={componentStyle.header}
+				>
+					<Btn
+						title="Tutorial"
+						onPress={() => this.props.navigation.navigate('Tutorial', { video: videoTutorial })}
+						disabled={!videoTutorial}
+					/>
+				</View>
 				<Score />
 				<Entry />
 				<Movement />
@@ -55,19 +75,19 @@ class Vote extends Component {
 					style={componentStyle.footer}
 				>
 					<Btn
-						title="Tutorial"
-						onPress={() => this.props.navigation.navigate('Tutorial', { video: videoTutorial })}
-						disabled={!videoTutorial}
-					/>
-					<Btn
-						title="Masks"
+						title="😷 Mask"
 						onPress={() => this.props.navigation.navigate('Tutorial', { video: videoMask })}
 						disabled={!videoMask}
 					/>
 					<Btn
-						title="Washing"
+						title="👏 Wash"
 						onPress={() => this.props.navigation.navigate('Tutorial', { video: videoWash })}
 						disabled={!videoWash}
+					/>
+					<Btn
+						title="🤒 Sick?"
+						onPress={() => this.props.navigation.navigate('Sick', { video: videoSick, onNotify: this.onNotify })}
+						disabled={!videoSick}
 					/>
 				</View>
 			</View>
