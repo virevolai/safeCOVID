@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Text, View, Button } from 'react-native'
+import { Text, View, } from 'react-native'
+import Btn from '../global/Btn'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { Colors, textStyle, componentStyle } from '../global/styles/'
 import YouTube from 'react-native-youtube'
 import { YOUTUBE_ANDROID_API_KEY } from 'react-native-dotenv'
 import { withFirebaseHOC } from '../global/Firebase'
@@ -26,8 +26,7 @@ function Tutorial({ route, navigation }) {
 					style={{ alignSelf: 'stretch', height: 300 }}
 				/>
 				<View style={componentStyle.footer}>
-					<Button
-						style={componentStyle.button}
+					<Btn
 						title='Go Back'
 						onPress={() => navigation.goBack()}
 					/>

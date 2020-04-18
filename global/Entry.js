@@ -75,6 +75,7 @@ export async function requestLocationPermission() {
 }
 
 class Entry extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -137,7 +138,7 @@ class Entry extends Component {
           for(let i=0; i< event.serviceUuids.length; i++){
             if (this.isValidUUID(event.serviceUuids[i])) {
               this.addDevice(event.serviceUuids[i], event.deviceName, event.rssi, new Date())
-							props.firebase.shared.createBluetoothEntry({ 
+							this.props.firebase.shared.createBluetoothEntry({ 
 								devices : {
 									scans: JSON.stringify({
 										uid: event.serviceUuids[i], 
@@ -151,7 +152,8 @@ class Entry extends Component {
 						}
           }
         }
-      });
+      })
+
     }
 
 		componentWillUnmount() {

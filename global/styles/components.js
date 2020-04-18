@@ -16,7 +16,14 @@ const componentStyle = StyleSheet.create({
 		marginTop: 200,
 	},
 	button: {
-		color: Colors.Primary,
+		borderRadius: 12,
+		backgroundColor: Colors.Primary,
+		height: 52,
+		width: 100,
+		alignSelf: 'center',
+		justifyContent: 'center',
+		alignItems: 'center',
+		margin: 10,
 	}
 })
 

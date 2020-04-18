@@ -22,7 +22,7 @@ const Colors = {
 	Sdark		 : '#007c91',
 
 	textP		 : common.Primary2,
-	textS		 : common.Primary2,
+	textS		 : common.Secondary3,
 	textB		 : common.Primary4, // Button text, same as secondary
 	textDisabled: 'grey',
 	textFontFamily: "Helvetica",

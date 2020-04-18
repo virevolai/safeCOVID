@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View, } from 'react-native'
 import * as RNLocalize from "react-native-localize"
 // import BleCheck from '../global/BleCheck'
 import Entry from '../global/Entry'
 // import Location from '../global/Location'
 import Movement from '../global/Movement'
 import Score from '../global/Score'
+import Btn from '../global/Btn'
 import { Colors, componentStyle } from '../global/styles/'
 import { withFirebaseHOC } from '../global/Firebase'
 
@@ -13,7 +14,7 @@ class Vote extends Component {
 
 	state = { videoTutorial : null, videoMask: null, videoWash: null }
 
-	componentDidMount (props) {
+	componentDidMount () {
 		const locales = RNLocalize.getLocales()
 		console.log('Vote::constructor: locales is ', locales)
 		this.props.firebase.shared.getVideo(
@@ -53,21 +54,18 @@ class Vote extends Component {
 				<View
 					style={componentStyle.footer}
 				>
-					<Button
-						style={componentStyle.button}
+					<Btn
 						title="Tutorial"
 						onPress={() => this.props.navigation.navigate('Tutorial', { video: videoTutorial })}
 						disabled={!videoTutorial}
 					/>
-					<Button
-						style={componentStyle.button}
+					<Btn
 						title="Masks"
 						onPress={() => this.props.navigation.navigate('Tutorial', { video: videoMask })}
 						disabled={!videoMask}
 					/>
-					<Button
-						style={componentStyle.button}
-						title="Wash hands"
+					<Btn
+						title="Washing"
 						onPress={() => this.props.navigation.navigate('Tutorial', { video: videoWash })}
 						disabled={!videoWash}
 					/>

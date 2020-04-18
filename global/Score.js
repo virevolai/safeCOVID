@@ -18,19 +18,13 @@ class Score extends Component {
 	render() {
 		const { noScoreMsg, score } = this.state
 		return (
-			<View>
+			<View style={{ justifyContent: 'center', alignItems: 'center'}}>
 				<Text style={textStyle.bold}>
 					My current level
 				</Text>
-				{ score ? (
-					<Text style={textStyle.score}>
-						{score}
-					</Text>
-				) : (
-					<Text style={textStyle.bold}>
-						{ noScoreMsg }
-					</Text>
-				)}
+				<Text style={textStyle.score}>
+					{score || 1}
+				</Text>
 			</View>
 		)
 	}
