@@ -46,6 +46,12 @@ For react-native-dotenv, update babel.config.js not .babelrc
 
 Android studio seems to be complainy... yarn android works 100%. It's probably because I dont know which android studio warnings to ignore.
 
+Expo has messed things up royally... need to do `expo publish` even though I do not use anything from them.... gaah
+This might work too, but not tested yet - 
+```
+react-native bundle --minify --entry-file index.js --platform ios --dev false --bundle-output ./ios/main.jsbundle --assets-dest ./ios
+```
+
 For android
 -----
 Before releasing, build with `targetSdkVersion = 28`.
