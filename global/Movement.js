@@ -14,17 +14,19 @@ class Movement extends Component {
 
 	state = { isMoving: false }
 
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		// setUpdateIntervalForType(SensorTypes.Accelerometer, 400); // defaults to 100ms
 
+		const { COLLECT_MVMT, MVMT_SPEED_THRESH } = props.firebase.shared.config
 		const subscription = accelerometer
-			.pipe(map(({ x, y, z }) => x + y + z), filter(speed => speed > 20))
+			.pipe(map(({ x, y, z }) => x + y + z), filter(speed => speed > MVMT_SPEED_THRESH))
 			.subscribe(
 				speed => {
-					console.log(`Movement::subscriotion: Phone is moving with ${speed}`)
-					this.props.firebase.shared.config.COLLECT_MVMT &&
-						this.props.firebase.shared.createMovementEntry(accelerometer)
+					// console.log(`Movement::subscription: Phone is moving with ${speed}`)
+					// TODO: We eventually do not want to log this.
+					// We just need to train some data on prompting folk to wear a mask when they get out of the car
+					props.firebase.shared.createMovementEntryMutexed({ speed })
 					this.setState({ isMoving: true })
 				},
 				error => {

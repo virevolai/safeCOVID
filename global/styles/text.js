@@ -28,6 +28,16 @@ const textStyle = StyleSheet.create({
 		'fontSize': 15,
 		margin: 10,
 	},
+	buttonDisabled: {
+		...common,
+		color: Colors.textS,
+		fontWeight: 'bold', 
+	},
+	buttonEnabled: {
+		...common,
+		color: Colors.textS,
+		fontWeight: 'bold', 
+	},
 })
 
 export default textStyle;

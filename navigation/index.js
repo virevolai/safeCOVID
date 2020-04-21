@@ -7,27 +7,32 @@ import * as RNLocalize from "react-native-localize"
 import { withFirebaseHOC } from '../global/Firebase'
 import Vote from '../screens/Vote'
 import Initial from '../screens/Initial'
+import Tutorial from '../screens/Tutorial'
+import Sick from '../screens/Sick'
 
 const Stack = createStackNavigator()
 
 class AppContainer extends Component {
 
-	state = { isLoggedin: false }
+	constructor(props) {
+		super()
+		this.state = { isLoggedin: false }
 
-	componentDidMount = async () =>
-		await this.props.firebase.shared.checkUserAuth(() => {
+		props.firebase.shared.checkUserAuth(() => {
 			setTimeout(() => this.setState({ isLoggedin: true }), 2000)
 			const locales = RNLocalize.getLocales()
 			console.log(locales)
 			this.props.firebase.shared.createLocaleEntry(locales[0])
 		})
+	}
 
 	render() {
-		console.log('AppContainer::render: isLoggedin is ', this.state.isLoggedin)
+		const { isLoggedin } = this.state
+
 		return (
 			<SafeAreaProvider>
 				<NavigationContainer>
-					{ this.state.isLoggedin ? (
+					{ isLoggedin ? (
 						<Stack.Navigator
 								screenOptions={{
 									headerStyle: {
@@ -41,6 +46,12 @@ class AppContainer extends Component {
 						>
 							<Stack.Screen
 								name="safeCOVID" component={Vote}
+							/>
+							<Stack.Screen
+								name="Tutorial" component={Tutorial}
+							/>
+							<Stack.Screen
+								name="Sick" component={Sick}
 							/>
 						</Stack.Navigator>
 					) : (
