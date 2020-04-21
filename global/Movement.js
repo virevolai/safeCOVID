@@ -24,6 +24,8 @@ class Movement extends Component {
 			.subscribe(
 				speed => {
 					// console.log(`Movement::subscription: Phone is moving with ${speed}`)
+					// TODO: We eventually do not want to log this.
+					// We just need to train some data on prompting folk to wear a mask when they get out of the car
 					props.firebase.shared.createMovementEntryMutexed({ speed })
 					this.setState({ isMoving: true })
 				},

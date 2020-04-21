@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, } from 'react-native'
 import * as RNLocalize from "react-native-localize"
-// import BleCheck from '../global/BleCheck'
 import Entry from '../global/Entry'
 // import Location from '../global/Location'
 import Movement from '../global/Movement'

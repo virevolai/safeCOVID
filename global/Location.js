@@ -59,6 +59,8 @@ class Location extends Component {
 				// console.log('Distance is ', d)
 				this.setState({ distance: d })
 				if (d > 0.01) {
+					// WARNING: Be careful here. DO NOT insert actual location.. like ever
+					// TODO: obfuscate Location: e.g. zero it out at start.. just log d
 					this.props.firebase.shared.createLocationEntryMutexed(position)
 				}
 			}
