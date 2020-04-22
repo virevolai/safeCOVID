@@ -11,7 +11,7 @@ COVID is the defining challenge of our lifetime.
 
 One that central authorities failed miserably at. We can hope that they will do the right thing, eventually. But hope is not a strategy.
 
-We need to reopen the society, but not lose our rights in the process. Once freedom is lost, it won't just be handed back.
+We need to reopen the society, but not lose our rights in the process. Once we lose freedom, we won't get it back easily.
 
 Sadly the narrative is that we need to cede more control to governments and corporations... the same ones who are still not adopting the scientific evidence on wearing masks and providing widespread tests. 
 
@@ -21,7 +21,7 @@ Without mass adoption, those approaches are not effective. The exemplar, Singapo
 
 I'm sure you can see what will happen next in name of public safety. E.g Singapore did try to surveil everyone after they said they wouldn't. They reverted only after Kevin Chu decompiled the code and [checked](https://splira.com/2020-03-28/).
 
-India asks for personal identifying information in the app, which is useful, but not strictly needed. Both these examples ask for location information, which again, is useful, but not strictly needed. To their credit, Apple and Google's approach does not require location tracking.
+India asks for personal identifying information in the app, which is useful, but not strictly needed. Both these examples ask for location information, which again, is useful, but not needed. To their credit, Apple and Google's approach does not require location tracking.
 
 > “They who would give up an essential liberty for temporary security, deserve neither liberty or security.” -Benjamin Franklin
 
@@ -52,6 +52,8 @@ Please do not harass them, but encourage them to 'get on your level'.
 
 Every time you meet someone, your level takes a hit, but not if you shared your level first.
 
+The longer you stay together, the more similar your level gets.
+
 The longer you stay at home, the higher your level gets.
 
 If you meet someone who travels and meets a lot of people, your level suffers.
@@ -60,7 +62,7 @@ If you enable location alerts in the app your level will go up by 1. Location al
 
 We also encourage good behavior by letting people take a photo of themselves in the mask on the phone, to see if it works properly. Again, this photo is not stored and privacy preserving ML can detect gaps of air on the skin.
 
-If you enable contact tracing, your level will go up to 3. Most people will enable this as insurance. But it is a voluntary opt-in.
+If you enable contact tracing, your level will go up to 3. Most people will enable this as insurance. It is a voluntary opt-in.
 
 ![Masks](safeCOVIDscreenshot_Masks.png)
 
@@ -119,9 +121,9 @@ We know that self-isolation does not work well for families as they are not able
 
 In places where governments did not separate the patient on first symptoms, the families got infected at a high rate. So we have to assume entire families need help. So we give up a little bit of accuracy (like tracking children) in exchange for more anonymity.
 
-But if your local government is indeed competent, you should call them and ask for instructions, so that you do not infect your family.
+If your local government is indeed competent, you should call them and ask for instructions, so that you do not infect your family.
 
-As it stands, there aren't enough tests in most countries for everyone. The answer isn't to try to curb the number of people who can have tests, but so easier 'smell' and 'taste' tests at home, and not send people to the hospital lines where they can catch more infections. We plan to work with experts and roll these tests into the app so they can be done at home.
+As it stands, there aren't enough tests in most countries for everyone. The answer isn't to try to curb the number of people who can have tests. Rather easier 'smell' and 'taste' markers at home, and not send people to the hospital lines where they can catch more infections. We plan to work with experts and roll these tests into the app so they can be done at home.
 
 We hope that the local governments will rise to the challenge, and make safeCOVID obsolete.
 
@@ -137,9 +139,9 @@ Apple and Google have proposed a privacy preserving way to track every human int
 
 As you can see the main goal of the app isn't to track every interaction (e.g. we do not want to track hand washing, children, or even wearing masks), but to educate. When we meet someone, what we are really sharing is their level of hygiene.
 
-This also leaves room for those who are do not want to improve their hygine. As long as they advertise their level to you beforehand you can decide if the risk is worth it for you.
+This also leaves room for those who are do not want to improve their hygiene. As long as they advertise their level to you beforehand you can decide if the risk is worth it for you.
 
-This encourages wider adoption as even those who do not trust any govt, can get on the app. But it does increase (from 60%) how many people would need to have the app to be effective. But hopefully with better education, we can actually do much better.
+This encourages wider adoption. Even those who do not trust their government can get on the app. But it does increase (from 60%) how many people would need to have the app to be effective. With better education, and more awareness, we will close that gap.
 
 Algorithm
 --------
@@ -151,14 +153,16 @@ When we share the uuids, we can also share the hashed score, and update each oth
 
 The update is `my_score += your_score * lambda`
 
-The MVP does send these scores to the server, because I am one person with one phone and this is how I could prototype to make sure scoring works correctly. But then we MUST turn it off and let it live on the phones, not centrally.
+As you can see, the more risky the person you spend time with, the more risk you pass on to others.
+
+The MVP does send these scores to the server, because I am one person with one phone and this is how I could prototype to make sure scoring works correctly. Once this is figured out, we MUST turn it off and let it live on the phones, not centrally.
 
 Anyone who controls the scoring will control all our futures. And so it must be auditable and stay in this codebase.
 
 
 A global vision
 -------------
-With COVID apps in each country, you will likely be asked to install them when the borders reopen. This open-source way is a great way to get everyone on the same level without sacrificing our freedoms. Left to making their own closed apps, countries aren't t likely give up tracking once they have it.
+With COVID apps in each country, you will likely be asked to install them when the borders reopen. This open-source way is a great way to get everyone on the same level without sacrificing our freedoms. Left to making their own closed apps, countries aren't likely give up tracking once they have it.
 
 > “To rob the public, it is necessary to deceive them. To deceive them, it is necessary to persuade them that they are robbed for their own advantage, and to induce them to accept in exchange for their property, imaginary services, and often worse.” ― Bastiat
 
@@ -175,7 +179,7 @@ We also pick the video in the localised language. These videos are public and on
 
 Further enhancements
 -------------
-There can be privacy preserving signature of person's movement via gyrosope, to make sure they don't give their phone to someone else to boose their level. Look at Apple's privacy preserving faceID work for a great way to do this.
+There can be privacy preserving signature of person's movement via gyrosope, to make sure they don't give their phone to someone else to boost their level. Look at Apple's privacy preserving faceID work for a great way to do this.
 
 We could theoretically have people take each other's photos to verify they are wearing masks, but that increases friction, and hence, adoption. Also, I'm not sure if formal verification is that much better than reminders and education so folks will do this by default.
 
@@ -207,17 +211,20 @@ Corollary, if you get into any new confined space (car, taxi, office) where peop
 
 Q. Why not just wait for herd immunity?
 
-Q. [No](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3506030/). Credit [@CT_Bergstrom](https://twitter.com/CT_Bergstrom)
+A. [No](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3506030/). Credit [@CT_Bergstrom](https://twitter.com/CT_Bergstrom)
+
+Q. Do we still need to bluetooth scan in the background?
+A. No. Because when people share their levels, we can scan then. However, given the Google/Apple proposal, this is a moot point.
 
 Q. Are you sure you got everything right?
 
-A. I build this in two weeks to avoid a surveillance future for myself and my kids. I am occassionally gifted, but I am certain I did not get every detail right. Now is your chance to constructively amend the proposals here by creating a github issue. Feel free to add pull requests, or tweet/DM at me (@analyticsaurabh). Or borrow ideas wholesale.
+A. I build this in two weeks to avoid a surveillance future for myself and my kids. I am occasionally gifted, but I am certain I did not get every detail right. Now is your chance to constructively amend the proposals here by creating a github issue. Feel free to add pull requests, or tweet/DM at me (@analyticsaurabh). Or borrow ideas wholesale.
 
-But this is a clear a vision of the World we need to create. And working code to help.
+I am putting forth a clear a vision of the World we need to create. And working code to help.
 
 Q. What are your qualifications?
 
-A. As you might have noticed, I'm not big on credentials. But since you asked, I have double bachelors degrees (not double major) in CS and Maths, on full scholarship. Since 2000, I have been a professional programmer, data scientist, ML engineer and everything in between. Previously, I wrote all ML for Rent The Runway from scratch. And again, as the sole founder for Virevol ai, created a new way to browse. But no, I am not a public health official of any sort. You should probably judge the idea on its merit and make your own conclusions. If you don't, you're missing the point of all this.
+A. As you might have noticed, I'm not big on credentials. Since you asked, I have double bachelors degrees (not double major) in CS and Maths, on full scholarship. Since 2000, I have been a professional programmer, data scientist, ML engineer and everything in between. Previously, I wrote all ML for Rent The Runway from scratch. And again, as the sole founder for Virevol ai, created a new way to browse. No, I am not a public health official of any sort. You should probably judge the idea on its merit and make your own conclusions. If you don't, you're missing the point of all this.
 
 Q. What about abuse because of X?
 
@@ -250,11 +257,11 @@ This MVP did what it was supposed to do. I tested that a contact tracing app wit
 
 If you need help and further clarity, please open a PR and I will help. If you are an organization interested in adopting it with the principles described, please reach out.
 
-But please act quickly, India is a ticking time bomb with cases doubling every 10 days, with less than 0.7 beds per 1000. Apple and Google's solution v1 rolls out mid-May, by then, India will likely have in excess of 100k cases. And that might be too late.
+However, please act quickly. India is a ticking time bomb with cases doubling every 10 days, with less than 0.7 beds per 1000. Apple and Google's solution v1 rolls out mid-May, by then, India will likely have in excess of 100k cases. And that might be too late.
 
 My parents are both doctors in India. I live in NYC with two adorable kids. So yes, my motivation for putting this proposal forth is so that we can build a society we want, Worldwide.
 
-If this virus has taught us anything, its that the human race is are all very, very connected.
+If this virus has taught us anything, its that we are all very, very connected.
 
 Let's get through this together.
 
