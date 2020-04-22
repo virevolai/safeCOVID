@@ -43,7 +43,6 @@ safeCOVID teaches you a new set of skills, these are - creating a mask cheaply, 
 Once you have gone through those and shared with folks living with you, you are safeCOVID level 1.
 
 ![Welcome](safeCOVIDscreenshot_Welcome.png)
-![Masks](safeCOVIDscreenshot_Masks.png)
 
 When you meet someone in person, you must insist that they show you their safeCOVID level. 
 
@@ -62,6 +61,8 @@ If you enable location alerts in the app your level will go up by 1. Location al
 We also encourage good behavior by letting people take a photo of themselves in the mask on the phone, to see if it works properly. Again, this photo is not stored and privacy preserving ML can detect gaps of air on the skin.
 
 If you enable contact tracing, your level will go up to 3. Most people will enable this as insurance. But it is a voluntary opt-in.
+
+![Masks](safeCOVIDscreenshot_Masks.png)
 
 If you must share a meal with someone, aka, take off masks, you should check that they have the *same* level before you do. Please also check if the local hospitals will have enough beds in two weeks, before you take such a risk.
 
