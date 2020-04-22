@@ -235,7 +235,7 @@ I am now donating this project and the ideas herein, to any organization that Ap
 
 This MVP did what it was supposed to do. I tested that a contact tracing app with a community first approach could be launched. If the idea has merit, it will go on with or without this project.
 
-If you need help and further clarity, please open a PR and I will help.
+If you need help and further clarity, please open a PR and I will help. If you are an organization interested in adopting it with the principles described, please reach out.
 
 But please act quickly, India is a ticking time bomb with cases doubling every 10 days, with less than 0.7 beds per 1000. Apple and Google's solution v1 rolls out mid-May, by then, India will likely have in excess of 100k cases. And that might be too late.
 
