@@ -214,7 +214,11 @@ Q. Why not just wait for herd immunity?
 A. [No](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3506030/). Credit [@CT_Bergstrom](https://twitter.com/CT_Bergstrom)
 
 Q. Do we still need to bluetooth scan in the background?
+
 A. No. Because when people share their levels, we can scan then. However, given the Google/Apple proposal, this is a moot point.
+
+Q. Why masks and not lockdowns?
+A. Lockdowns are a rough tool to get the R0 under and give hospitals time to adjust. But masks and social distancing keep R0 under control for a longer term. Besides, with better hygine we might also decrease risk of some other diseases.
 
 Q. Are you sure you got everything right?
 
