@@ -125,7 +125,7 @@ If you do get COVID and have a test that your most frequent familiars can verify
 
 We pledge to delete all data (random tokens) once this is behind us. There are also better ways to obfuscate the data, where no one organization has access to all of it, as noted in [this paper](https://arxiv.org/abs/2003.11511).
 
-What is different
+What is different from other approaches
 ---------------
 Apple and Google have proposed a privacy preserving way to track every human interaction and coordinate with the local health authorities on tests. But have left adoption as an exercise to the reader. Coordination with health authorities is also not straightforward in many countries. And in some, dangerous.
 
