@@ -2,7 +2,7 @@
 safeCOVID
 ---------
 
-This was written to help with adoption of contact tracing. See docs for more, published [here](https://www.safeCOVID.org)
+This was written to help with adoption of contact tracing. See docs for more, published [here](https://safeCOVID.org)
 
 It was written within two weeks, and there are no tests.
 I wanted to test if Apple/Google would accept this, and in that, it failed. So I have not productionized it.
