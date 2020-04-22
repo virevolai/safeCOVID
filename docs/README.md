@@ -74,9 +74,15 @@ We solve this, by holding each other accountable, together.
 
 How do you share your level?
 --------------
-Every day, your app randomly assigns you one of 256 avatars. When you bring up safeCOVID, you will see avatars of people around you. Both of you have to choose each other's avatars on the screen for you to decode each other's scores. In case you couldn't guess, these coupled with keys from the server are your AES keys.
+Every day, your app randomly assigns you one of 256 avatars. When you bring up safeCOVID, you will see avatars of people around you. 
 
-We need to send rotated keys every hour to make sure no one is hacking the system. The emojis enable future enhancements like having the app on smart watch, or a brooch on the mask that you press.
+You hold up your phones and visually show each other your avatar for the day.
+
+Then, in the App, choose them to decode each other's scores.
+
+In case you couldn't guess, these coupled with keys from the server are your AES encryption keys.
+
+We need to rotate server side keys every hour to make sure no one is hacking the system. The emojis enable future enhancements like having the app on smart watch, or a brooch on the mask that you press.
 
 This could be done with QR codes too but then we would then need to use the camera, and yes, add friction.
 
@@ -184,9 +190,11 @@ FAQ
 -------
 Q. Do we have to wear masks even if I don't have any symptoms?
 
-A. When you meet someone else, yes. See [this](https://www.fast.ai/2020/04/13/masks-summary/) excellent resource for details. Most of the spread has been due to people who did not show any symptoms. And of course, more by [Taleb](https://twitter.com/nntaleb/status/1249302327158333442)
+A. When you meet someone else, yes. See [this](https://www.fast.ai/2020/04/13/masks-summary/) excellent resource by Jeremy howard and Rachel Thomas, for details. Most of the spread has been due to people who did not show any symptoms. 
 
 > 'My mask protects you, your mask protects me'
+
+And of course, more by [Taleb](https://twitter.com/nntaleb/status/1249302327158333442)
 
 ![](taleb.png)
 
@@ -205,11 +213,11 @@ Q. Are you sure you got everything right?
 
 A. I build this in two weeks to avoid a surveillance future for myself and my kids. I am occassionally gifted, but I am certain I did not get every detail right. Now is your chance to constructively amend the proposals here by creating a github issue. Feel free to add pull requests, or tweet/DM at me (@analyticsaurabh). Or borrow ideas wholesale.
 
-But this is a clear a vision of the World we need to create. And code.
+But this is a clear a vision of the World we need to create. And working code to help.
 
 Q. What are your qualifications?
 
-A. As you might have noticed, I'm not big on credentials. But since you asked, I have double bachelors degrees (not double major) in CS and Maths. Since 2000, I have been a professional programmer, data scientist, ML engineer and everything in between. Previously, I wrote all ML for Rent The Runway from scratch. And again, as the sole founder for Virevol ai, created a new way to browse. But no, I am not a public health official of any sort. You should probably judge the idea on its merit and make your own conclusions. If you don't, you're missing the point of all this.
+A. As you might have noticed, I'm not big on credentials. But since you asked, I have double bachelors degrees (not double major) in CS and Maths, on full scholarship. Since 2000, I have been a professional programmer, data scientist, ML engineer and everything in between. Previously, I wrote all ML for Rent The Runway from scratch. And again, as the sole founder for Virevol ai, created a new way to browse. But no, I am not a public health official of any sort. You should probably judge the idea on its merit and make your own conclusions. If you don't, you're missing the point of all this.
 
 Q. What about abuse because of X?
 
@@ -221,6 +229,8 @@ A. We cannot solve all of society's ills with this. Right now, the Titanic is si
 Current Status
 ---------
 I was sure someone would do this, and I waited. But got increasingly frustrated to see that no one was talking about adoption, just copying Singapore's idea. So I built it in two weeks, thanks to existing work by MIT group, Polidea, Vitor Pamplona, and countless others.
+
+The MVP runs and works.
 
 However, Apple has rejected this app as virevol ai is not a health authority. Google has still not reviewed the app.
 
@@ -242,7 +252,7 @@ If you need help and further clarity, please open a PR and I will help. If you a
 
 But please act quickly, India is a ticking time bomb with cases doubling every 10 days, with less than 0.7 beds per 1000. Apple and Google's solution v1 rolls out mid-May, by then, India will likely have in excess of 100k cases. And that might be too late.
 
-My parents are both doctors in India. I live in NYC with two adorable kids. And I do miss walking to my favorite coffee shop. So yes, my motivation for putting this proposal forth is so that we can build a society we want.
+My parents are both doctors in India. I live in NYC with two adorable kids. So yes, my motivation for putting this proposal forth is so that we can build a society we want, Worldwide.
 
 If this virus has taught us anything, its that the human race is are all very, very connected.
 
@@ -250,4 +260,4 @@ Let's get through this together.
 
 
 -----
-donated by virevol ai
+proposal by virevol ai
