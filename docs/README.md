@@ -81,7 +81,7 @@ This could be done with QR codes too but then we would then need to use the came
 
 Credit for the original idea
 
-[https://twitter.com/balajis/status/1247954029285502976](balajis.png)
+![https://twitter.com/balajis/status/1247954029285502976](balajis.png)
 
 What happens if you get alerted, or are feeling sick?
 ---------------
