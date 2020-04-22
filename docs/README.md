@@ -218,7 +218,7 @@ A. No. Because when people share their levels, we can scan then. However, given 
 
 Q. Are you sure you got everything right?
 
-A. I build this in two weeks to avoid a surveillance future for myself and my kids. I am occasionally gifted, but I am certain I did not get every detail right. Now is your chance to constructively amend the proposals here by creating a github issue. Feel free to add pull requests, or tweet/DM at me (@analyticsaurabh). Or borrow ideas wholesale.
+A. I build this in two weeks to avoid a surveillance future for myself and my kids. I am occasionally gifted, but I am certain I did not get every detail right. Now is your chance to constructively amend the proposals here by creating a github issue. Feel free to add pull requests, or tweet/DM at me at [@analyticsaurabh](https://twitter.com/analyticsaurabh). Or borrow ideas wholesale.
 
 I am putting forth a clear a vision of the World we need to create. And working code to help.
 
