@@ -42,8 +42,8 @@ safeCOVID teaches you a new set of skills, these are - creating a mask cheaply, 
 
 Once you have gone through those and shared with folks living with you, you are safeCOVID level 1.
 
-[safeCOVID screenshot1](safeCOVID1.png)
-[safeCOVID screenshot2](safeCOVID2.png)
+![Welcome](safeCOVIDscreenshot_Welcome.png)
+![Masks](safeCOVIDscreenshot_Masks.png)
 
 When you meet someone in person, you must insist that they show you their safeCOVID level. 
 
@@ -88,6 +88,8 @@ What happens if you get alerted, or are feeling sick?
 Being responsible, you would have been sharing safeCOVID levels. In two weeks from now, if the neighbourhood grocer exhibits symptoms, you will get an alert. 
 
 They will remain anonymous, unless they want to share some identifying information.
+
+![Sick](safeCOVIDscreenshot_Sick.png)
 
 There are two flavors of these alerts.
 
@@ -153,6 +155,8 @@ With COVID apps in each country, you will likely be asked to install them when t
 
 > “To rob the public, it is necessary to deceive them. To deceive them, it is necessary to persuade them that they are robbed for their own advantage, and to induce them to accept in exchange for their property, imaginary services, and often worse.” ― Bastiat
 
+Every country can check and audit the level. They can commit code if they think of a better way in a transparent way.
+
 UX
 ----
 India is home to 13 national languages with a literacy rate of 74%. This means we need to communicate using video and emojis.
@@ -177,30 +181,39 @@ Societies are built on bottoms up trust, top-down has to be earned.
 
 FAQ
 -------
-Q. - Do we have to wear masks even if I don't have any symptoms?
-A. - When you meet someone else, yes. See [this](https://www.fast.ai/2020/04/13/masks-summary/) excellent resource for details. Most of the spread has been due to people who did not show any symptoms. And of course, more by [Taleb](https://twitter.com/nntaleb/status/1249302327158333442)
+Q. Do we have to wear masks even if I don't have any symptoms?
 
-'My mask protects you, your mask protects me'
+A. When you meet someone else, yes. See [this](https://www.fast.ai/2020/04/13/masks-summary/) excellent resource for details. Most of the spread has been due to people who did not show any symptoms. And of course, more by [Taleb](https://twitter.com/nntaleb/status/1249302327158333442)
 
-Q. - Do I have to wear a mask in my car?
-A. - If you are only ever alone in that car, or with people of the same level, you do not have to. We do not need forced surveillance like [this](https://arstechnica.com/cars/2020/04/covid-19-means-truckers-need-facemask-aware-driver-monitoring-systems/). 
+> 'My mask protects you, your mask protects me'
+
+![](taleb.png)
+
+Q. Do I have to wear a mask in my car?
+
+A. If you are only ever alone in that car, or with people of the same level, you do not have to. We do not need forced surveillance like [this](https://arstechnica.com/cars/2020/04/covid-19-means-truckers-need-facemask-aware-driver-monitoring-systems/). 
 
 
 Corollary, if you get into any new confined space (car, taxi, office) where people stay for a long time, you should wear a mask at all times because you can no longer assume safety.
 
-Q. - Why not just wait for herd immunity?
-Q. - [No](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3506030/). Credit [@CT_Bergstrom](https://twitter.com/CT_Bergstrom)
+Q. Why not just wait for herd immunity?
 
-Q. - Are you sure you got everything right?
-A. - I build this in two weeks to avoid a surveillance future for myself and my kids. I am occassionally gifted, but I am certain I did not get every detail right. Now is your chance to constructively amend the proposals here by creating a github issue. Feel free to add pull requests, or tweet/DM at me (@analyticsaurabh). Or borrow ideas wholesale.
+Q. [No](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3506030/). Credit [@CT_Bergstrom](https://twitter.com/CT_Bergstrom)
+
+Q. Are you sure you got everything right?
+
+A. I build this in two weeks to avoid a surveillance future for myself and my kids. I am occassionally gifted, but I am certain I did not get every detail right. Now is your chance to constructively amend the proposals here by creating a github issue. Feel free to add pull requests, or tweet/DM at me (@analyticsaurabh). Or borrow ideas wholesale.
 
 But this is a clear a vision of the World we need to create. And code.
 
-Q. - What are your qualifications?
-A. - As you might have noticed, I'm not big on credentials. But since you asked, I have double bachelors degrees (not double major) in CS and Maths. Previously, I wrote all ML for Rent The Runway from scratch. And again, as the sole founder for Virevol ai, created a new way to browse. But no, I am not a public health official of any sort. You should probably judge the idea on its merit and make your own conclusions.
+Q. What are your qualifications?
 
-Q. - What about abuse because of X?
-A. - We cannot solve all of society's ills with this. Right now, the Titanic is sinking and we need to teach people how to swim, quickly. We can talk about the music later.
+A. As you might have noticed, I'm not big on credentials. But since you asked, I have double bachelors degrees (not double major) in CS and Maths. Since 2000, I have been a professional programmer, data scientist, ML engineer and everything in between. Previously, I wrote all ML for Rent The Runway from scratch. And again, as the sole founder for Virevol ai, created a new way to browse. But no, I am not a public health official of any sort. You should probably judge the idea on its merit and make your own conclusions. If you don't, you're missing the point of all this.
+
+Q. What about abuse because of X?
+
+A. We cannot solve all of society's ills with this. Right now, the Titanic is sinking and we need to teach people how to swim, quickly. We can talk about the music later.
+
 
 ***Trust people who you see everyday.***
 
@@ -208,9 +221,9 @@ Current Status
 ---------
 I was sure someone would do this, and I waited. But got increasingly frustrated to see that no one was talking about adoption, just copying Singapore's idea. So I built it in two weeks, thanks to existing work by MIT group, Polidea, Vitor Pamplona, and countless others.
 
-However, Apple has rejected this app as virevol ai is not a health authority.
+However, Apple has rejected this app as virevol ai is not a health authority. Google has still not reviewed the app.
 
-"your app must be published under a seller and company name of a recognized institution. If you have developed this app on behalf of such an institution, please advise your client to add you to the development team of their Apple Developer account."
+> "your app must be published under a seller and company name of a recognized institution. If you have developed this app on behalf of such an institution, please advise your client to add you to the development team of their Apple Developer account."
 
 While I understand their reasons, I propose that any open source project should be allowed.
 
@@ -226,8 +239,7 @@ If you need help and further clarity, please open a PR and I will help.
 
 But please act quickly, India is a ticking time bomb with cases doubling every 10 days, with less than 0.7 beds per 1000. Apple and Google's solution v1 rolls out mid-May, by then, India will likely have in excess of 100k cases. And that might be too late.
 
-My parents are both doctors in India. I live in NYC. And I do miss walking to my favorite ocoffee shop. But none of that matters. 
-
+My parents are both doctors in India. I live in NYC with two adorable kids. And I do miss walking to my favorite coffee shop. So yes, I am putting this forth so we build a society we want.
 
 If this virus has taught us anything, its that the human race is are all very, very connected.
 
