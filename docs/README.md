@@ -230,6 +230,8 @@ While I understand their reasons, I propose that any open source project should 
 
 Google Youtube is also banning all videos that go against WHO's recommendations, which have been wrong at a lot of critical steps, and are still wrong about masks. Their current advice is still, in mid-April, to only wear masks if you have symptoms, despite the evidence.
 
+![https://twitter.com/micsolana/status/1252726598169583619](solana.png)
+
 We need more diverse ideas to drive up adoption, not fewer. Esp when Google and Apple did not propose any ideas of their own.
 
 I am now donating this project and the ideas herein, to any organization that Apple and Google approve of.. yes, we still do need some authorities :)
@@ -240,7 +242,7 @@ If you need help and further clarity, please open a PR and I will help. If you a
 
 But please act quickly, India is a ticking time bomb with cases doubling every 10 days, with less than 0.7 beds per 1000. Apple and Google's solution v1 rolls out mid-May, by then, India will likely have in excess of 100k cases. And that might be too late.
 
-My parents are both doctors in India. I live in NYC with two adorable kids. And I do miss walking to my favorite coffee shop. So yes, I am putting this forth so we build a society we want.
+My parents are both doctors in India. I live in NYC with two adorable kids. And I do miss walking to my favorite coffee shop. So yes, my motivation for putting this proposal forth is so that we can build a society we want.
 
 If this virus has taught us anything, its that the human race is are all very, very connected.
 
