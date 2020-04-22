@@ -43,7 +43,6 @@ safeCOVID teaches you a new set of skills, these are - creating a mask cheaply, 
 Once you have gone through those and shared with folks living with you, you are safeCOVID level 1.
 
 ![Welcome](safeCOVIDscreenshot_Welcome.png)
-![Masks](safeCOVIDscreenshot_Masks.png)
 
 When you meet someone in person, you must insist that they show you their safeCOVID level. 
 
@@ -62,6 +61,8 @@ If you enable location alerts in the app your level will go up by 1. Location al
 We also encourage good behavior by letting people take a photo of themselves in the mask on the phone, to see if it works properly. Again, this photo is not stored and privacy preserving ML can detect gaps of air on the skin.
 
 If you enable contact tracing, your level will go up to 3. Most people will enable this as insurance. But it is a voluntary opt-in.
+
+![Masks](safeCOVIDscreenshot_Masks.png)
 
 If you must share a meal with someone, aka, take off masks, you should check that they have the *same* level before you do. Please also check if the local hospitals will have enough beds in two weeks, before you take such a risk.
 
@@ -124,7 +125,7 @@ If you do get COVID and have a test that your most frequent familiars can verify
 
 We pledge to delete all data (random tokens) once this is behind us. There are also better ways to obfuscate the data, where no one organization has access to all of it, as noted in [this paper](https://arxiv.org/abs/2003.11511).
 
-What is different
+What is different from other approaches
 ---------------
 Apple and Google have proposed a privacy preserving way to track every human interaction and coordinate with the local health authorities on tests. But have left adoption as an exercise to the reader. Coordination with health authorities is also not straightforward in many countries. And in some, dangerous.
 
@@ -229,6 +230,8 @@ While I understand their reasons, I propose that any open source project should 
 
 Google Youtube is also banning all videos that go against WHO's recommendations, which have been wrong at a lot of critical steps, and are still wrong about masks. Their current advice is still, in mid-April, to only wear masks if you have symptoms, despite the evidence.
 
+![https://twitter.com/micsolana/status/1252726598169583619](solana.png)
+
 We need more diverse ideas to drive up adoption, not fewer. Esp when Google and Apple did not propose any ideas of their own.
 
 I am now donating this project and the ideas herein, to any organization that Apple and Google approve of.. yes, we still do need some authorities :)
@@ -239,7 +242,7 @@ If you need help and further clarity, please open a PR and I will help. If you a
 
 But please act quickly, India is a ticking time bomb with cases doubling every 10 days, with less than 0.7 beds per 1000. Apple and Google's solution v1 rolls out mid-May, by then, India will likely have in excess of 100k cases. And that might be too late.
 
-My parents are both doctors in India. I live in NYC with two adorable kids. And I do miss walking to my favorite coffee shop. So yes, I am putting this forth so we build a society we want.
+My parents are both doctors in India. I live in NYC with two adorable kids. And I do miss walking to my favorite coffee shop. So yes, my motivation for putting this proposal forth is so that we can build a society we want.
 
 If this virus has taught us anything, its that the human race is are all very, very connected.
 
