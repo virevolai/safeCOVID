@@ -19,7 +19,7 @@ We do not need more top-down approaches, more surveillance. And even with privac
 
 Without mass adoption, those approaches are not effective. The exemplar, Singapore's TraceTogether app currently has an adoption rate of less than 15%. They need to get 60% adoption to be effective.
 
-I'm sure you can see what will happen next in name of public safety. E.g Singapore did try to surveil everyone after they said they wouldn't. They reverted only after Kevin Chu decompiled the code and [checked](https://splira.com/2020-03-28/).
+I'm sure you can see what will happen next in name of public safety. E.g Singapore did try to surveil everyone after they said they wouldn't. They reverted only after Kevin Chu decompiled the code and [checked](https://splira.com/2020-03-28/), as covered by [Bloomberg here](https://www.bloomberg.com/news/articles/2020-04-15/hackers-have-some-of-the-best-ideas-in-war-against-coronavirus)
 
 India asks for personal identifying information in the app, which is useful, but not strictly needed. Both these examples ask for location information, which again, is useful, but not needed. To their credit, Apple and Google's approach does not require location tracking.
 
@@ -170,7 +170,7 @@ Every country can check and audit the level. They can commit code if they think 
 
 UX
 ----
-India is home to 13 national languages with a literacy rate of 74%. This means we need to communicate using video and emojis.
+India is home to 13 national languages with a literacy rate of 74%. In Sub-Saharan Africa, literacy in many countries is still below 60%. This means we need to communicate using videos and emojis.
 
 You have seen the screenshots shared here to show the principle.
 
@@ -194,13 +194,17 @@ FAQ
 -------
 Q. Do we have to wear masks even if I don't have any symptoms?
 
-A. When you meet someone else, yes. See [this](https://www.fast.ai/2020/04/13/masks-summary/) excellent resource by Jeremy howard and Rachel Thomas, for details. Most of the spread has been due to people who did not show any symptoms. 
+A. When you meet someone else, yes. See [this](https://www.fast.ai/2020/04/13/masks-summary/) excellent resource by Jeremy howard and Rachel Thomas, for details. Nearly half the infections have been via people who did not show any symptoms. 
 
 > 'My mask protects you, your mask protects me'
 
 And of course, more by [Taleb](https://twitter.com/nntaleb/status/1249302327158333442)
 
 ![](taleb.png)
+
+Q. Do kids have to wear masks?
+
+A. Yes, sadly, for now. You child might not get sick but can still pass it on to you, or your parents.
 
 Q. Do I have to wear a mask in my car?
 
@@ -211,14 +215,19 @@ Corollary, if you get into any new confined space (car, taxi, office) where peop
 
 Q. Why not just wait for herd immunity?
 
-A. [No](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3506030/). Credit [@CT_Bergstrom](https://twitter.com/CT_Bergstrom)
+A. [Just No](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3506030/). Credit [@CT_Bergstrom](https://twitter.com/CT_Bergstrom) Also, we have enough data from enough countries and provinces in China to have a good answer on this. If the science changes, we will update. But for now, please stop makig this argument.
 
 Q. Do we still need to bluetooth scan in the background?
 
 A. No. Because when people share their levels, we can scan then. However, given the Google/Apple proposal, this is a moot point.
 
 Q. Why masks and not lockdowns?
+
 A. Lockdowns are a rough tool to get the R0 under and give hospitals time to adjust. But masks and social distancing keep R0 under control for a longer term. Besides, with better hygine we might also decrease risk of some other diseases.
+
+Q. What about folk who do not have a smartphone?
+
+A. You can set a great example by politely asking for their safeCOVID level, and wearing a mask yourself. This does not mean they will go out and get a phone. But that they will be aware of good hygine and get safer. saveCOVID is a mechanism for education. If most of the population is practicing good hygine, we do not need safeCOVID.
 
 Q. Are you sure you got everything right?
 
@@ -228,7 +237,11 @@ I am putting forth a clear a vision of the World we need to create. And working 
 
 Q. What are your qualifications?
 
-A. As you might have noticed, I'm not big on credentials. Since you asked, I have double bachelors degrees (not double major) in CS and Maths, on full scholarship. Since 2000, I have been a professional programmer, data scientist, ML engineer and everything in between. Previously, I wrote all ML for Rent The Runway from scratch. And again, as the sole founder for Virevol ai, created a new way to browse. No, I am not a public health official of any sort. You should probably judge the idea on its merit and make your own conclusions. If you don't, you're missing the point of all this.
+A. As you might have noticed, I'm not big on credentials. Since you asked, I have double bachelors degrees (not double major) in CS and Maths, on full scholarship. Since 2000, I have been a professional programmer, data scientist, ML engineer and everything in between. Previously, I founded data science at Barnes & Nobles and Rent The Runway. I wrote all ML for Rent The Runway from scratch and was first one to make fashion ML recommendations. And again, as the sole founder for Virevol ai, invented a new way to shop. No, I am not a public health official or virology expert of any sort. You should probably judge the idea on its merit and make your own conclusions. If you don't, you're missing the point of all this.
+
+Q. Does this mean I should not do what my government says?
+
+A. There are too many countries in the World for me to give you an answer here. The short answer is, do this as a global citizen. But please evaluate ideas on their own merit, not relying on people who claim to be an expert in everything.
 
 Q. What about abuse because of X?
 
@@ -263,7 +276,9 @@ If you need help and further clarity, please open a PR and I will help. If you a
 
 However, please act quickly. India is a ticking time bomb with cases doubling every 10 days, with less than 0.7 beds per 1000. Apple and Google's solution v1 rolls out mid-May, by then, India will likely have in excess of 100k cases. And that might be too late.
 
-My parents are both doctors in India. I live in NYC with two adorable kids. So yes, my motivation for putting this proposal forth is so that we can build a society we want, Worldwide.
+We must optimize for speed.
+
+My parents are both doctors in India. My wife's family is in France. I live in NYC with two adorable kids. So yes, my motivation for putting this proposal forth is so that we can build a society we want, Worldwide.
 
 If this virus has taught us anything, its that we are all very, very connected.
 
