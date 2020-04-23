@@ -223,11 +223,11 @@ A. No. Because when people share their levels, we can scan then. However, given 
 
 Q. Why masks and not lockdowns?
 
-A. Lockdowns are a rough tool to get the R0 under and give hospitals time to adjust. But masks and social distancing keep R0 under control for a longer term. Besides, with better hygine we might also decrease risk of some other diseases.
+A. Lockdowns are a rough tool to get the R0 under and give hospitals time to adjust. But masks and social distancing keep R0 under control for a longer term. Besides, with better hygiene we might also decrease risk of some other diseases.
 
 Q. What about folk who do not have a smartphone?
 
-A. You can set a great example by politely asking for their safeCOVID level, and wearing a mask yourself. This does not mean they will go out and get a phone. But that they will be aware of good hygine and get safer. saveCOVID is a mechanism for education. If most of the population is practicing good hygine, we do not need safeCOVID.
+A. You can set a great example by politely asking for their safeCOVID level, and wearing a mask yourself. This does not mean they will go out and get a phone. But that they will be aware of good hygiene and get safer. saveCOVID is a mechanism for education. If most of the population is practicing good hygiene, we do not need safeCOVID.
 
 Q. Are you sure you got everything right?
 
