@@ -241,9 +241,20 @@ A. As you might have noticed, I'm not big on credentials. Since you asked, I hav
 
 Q. Does this mean I should not do what my government says?
 
-A. There are too many countries in the World for me to give you an answer here. The short answer is, do this as a global citizen. But please evaluate ideas on their own merit, not relying on people who claim to be an expert in everything. Those experts might appear on TV, or as government. If their advice helps, or you install one more app, you should consider doing it.
+A. This is the heart of it. There are people in every country who trust their government, and people who do not. People who do, will install the apps from the Govt, as they should. But unless we get to all, we won't solve it. Contact tracing falls short preciely because of low trust in the contact tracer. Google and Apple's proposal is the best here as it gives the choice to release information to the person with the app. However they do rely on local health authorities for verification, and that is an issue. Further, some countries might not like Google and Apple having the contact tracing data without sharing with them. They have not proposed an idea around adoption, unless they force it everyone's phones, it will be working with these authorities to get people to install it. People with low trust in these authorities won't.
 
-Guiding priciple for all advice right now: It's better to err on the side of more caution when we do not know. Vaccinate when we have a solution.
+
+Even if they did install the app, whether they comply or not is invisible to you. And you are putting yourself at risk talking to the. People using safeCOVID are making themselves visible by wearing masks and demanding levels. This will drive up adoption, which is they key to all of this.
+
+Q. What about if orgainzation X says this?
+
+A. There are too many countries and organizations in the World for me to give you a real answer here. The short answer is, do this as a global citizen. But please evaluate ideas on their own merit, not relying on people who claim to be an expert in everything. Those experts might appear on TV, or as government. If their advice helps, or you install one more app, you should consider doing it.
+
+Guiding principle for all advice right now: ***It's better to err on the side of more caution when we do not know.*** Vaccinate when we have a solution.
+
+Q. Why should I err on the side of caution when I don't know?
+
+A. You like to swim. But today, there is a shark in the water. Now, chances are that the shark will leave you alone. You know the stats are low. But maybe, just pick a different beach.
 
 Q. What about abuse because of X?
 
