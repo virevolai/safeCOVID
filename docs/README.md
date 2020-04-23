@@ -241,7 +241,9 @@ A. As you might have noticed, I'm not big on credentials. Since you asked, I hav
 
 Q. Does this mean I should not do what my government says?
 
-A. There are too many countries in the World for me to give you an answer here. The short answer is, do this as a global citizen. But please evaluate ideas on their own merit, not relying on people who claim to be an expert in everything.
+A. There are too many countries in the World for me to give you an answer here. The short answer is, do this as a global citizen. But please evaluate ideas on their own merit, not relying on people who claim to be an expert in everything. Those experts might appear on TV, or as government. If their advice helps, or you install one more app, you should consider doing it.
+
+Guiding priciple for all advice right now: It's better to err on the side of more caution when we do not know. Vaccinate when we have a solution.
 
 Q. What about abuse because of X?
 
